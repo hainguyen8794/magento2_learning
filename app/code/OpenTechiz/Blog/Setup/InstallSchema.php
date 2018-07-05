@@ -14,6 +14,7 @@ class InstallSchema implements InstallSchemaInterface
 		$installer = $setup;
 
 	    $installer->startSetup();
+
 	    $table = $installer->getConnection()
 	        ->newTable($installer->getTable('opentechiz_blog_post'))
 	        ->addColumn('post_id', Table::TYPE_SMALLINT, null, [
@@ -30,6 +31,8 @@ class InstallSchema implements InstallSchemaInterface
 	        ->addIndex($installer->getIdxName('opentechiz_blog_category', ['url_key']),['url_key'])
 	        ->setComment('Post Table');
 	    $installer->getConnection()->createTable($table);
+
+        $installer->endSetup();
 	}
 	
 }
