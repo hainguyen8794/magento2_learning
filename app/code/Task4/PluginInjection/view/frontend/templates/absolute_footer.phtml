@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+// @codingStandardsIgnoreFile
+?>
+<div class="absolute-footer" style="text-align:center;">
+    <p>
+        <?php if (!$customer->isEmpty()) echo 'Customer name:' .$customer->getFirstName()." "
+        .$customer->getMiddleName()." ".$customer->getLastName(); ?>
+        <?php if (!$customer->isEmpty()) echo '<br>Customer name:'. print_r($customer->getData()); ?>
+    </p>
+    <?php /* @escapeNotVerified */
+    echo $block->getMiscellaneousHtml(); ?>
+</div>
