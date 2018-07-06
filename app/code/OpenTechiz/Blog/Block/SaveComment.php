@@ -17,7 +17,7 @@ class SaveComment extends Template
         parent::__construct($context, $data);
     }
     public function getFormAction(){
-        return '/magento2/blog/comment/save';
+        return '/magento2.2/blog/comment/save';
     }
     public function getPostID()
     {

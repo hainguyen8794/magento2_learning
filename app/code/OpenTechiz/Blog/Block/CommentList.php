@@ -10,6 +10,7 @@ namespace OpenTechiz\Blog\Block;
 
 use  Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
+use OpenTechiz\Blog\Api\Data\CommentInterface;
 use OpenTechiz\Blog\Model\ResourceModel\Comment\Collection as CommentCollection;
 class CommentList extends Template
 {
@@ -18,7 +19,7 @@ class CommentList extends Template
 	protected $_request;
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        \OpenTechiz\Blog\Model\ResourceModel\Post\CollectionFactory $commentCollectionFactory,
+        \OpenTechiz\Blog\Model\ResourceModel\Comment\CollectionFactory $commentCollectionFactory,
         \Magento\Framework\App\RequestInterface $request,
         array $data = []
     )

@@ -41,7 +41,7 @@ class Save extends Action
             if($urlPost)
             {
                 $resultRedirect->setUrl($urlPost);
-            } else $resultRedirect->setUrl('/magento2/blog/');
+            } else $resultRedirect->setUrl('/magento2.2/blog/');
             return $resultRedirect;
         }
         $resultRedirect->setUrl('/magento2.2/blog/');
