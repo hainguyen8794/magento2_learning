@@ -150,6 +150,7 @@ return [
     'Mgt_DeveloperToolbar' => 1,
     'OpenCert_Hello' => 1,
     'OpenTechiz_Blog' => 1,
+    'Robin_Bai1' => 1,
     'Shopial_Facebook' => 1,
     'ShowCategory_CatewithImage' => 1,
     'Task4_ArgumentReplacement' => 1,
