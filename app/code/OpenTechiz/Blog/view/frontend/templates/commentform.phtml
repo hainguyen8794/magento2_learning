@@ -35,6 +35,17 @@
                           class="input-text"></textarea>
             </div>
         </div>
+        <div class="field required">
+            <label for="email" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('Email') ?></span>
+            </label>
+
+            <div class="control">
+                <input type="email" id="email"
+                       name="email"
+                       class="input-text" width="50%">
+            </div>
+        </div>
     </fieldset>
     <input type="hidden" name="post_id" value="<?php echo $block->getPostID() ?>"/>
     <div class="actions-toolbar">
