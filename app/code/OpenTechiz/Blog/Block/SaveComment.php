@@ -23,4 +23,9 @@ class SaveComment extends Template
     {
         return $this->_request->getParam('post_id', false);
     }
+    public function getAjaxUrl()
+    {
+        return '/magento2.2/blog/comment/load';
+    }
+
 }

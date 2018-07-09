@@ -1,83 +1,107 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 05/07/2018
- * Time: 17:31
- */
-
 namespace OpenTechiz\Blog\Model;
 use OpenTechiz\Blog\Api\Data\CommentInterface;
 use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Framework\Model\AbstractModel;
-
-
-class Comment extends AbstractModel implements CommentInterface,IdentityInterface
+class Comment extends \Magento\Framework\Model\AbstractModel implements CommentInterface,IdentityInterface
 {
-
-    const CACHE_TAG ='opentechiz_blog_comment';
+    const STATUS_ENABLED = 1;
+    const STATUS_DISABLED =2;
+    const STATUS_PENDING = 0;
+    const CACHE_TAG='opentechiz_blog_comment';
     function _construct()
     {
         $this->_init('OpenTechiz\Blog\Model\ResourceModel\Comment');
+    }
+
+    public function getAvailableStatuses()
+    {
+        return [self::STATUS_ENABLED => __('Enabled'), self::STATUS_DISABLED => __('Disabled'), self::STATUS_PENDING => __('Pending')];
     }
     public function getIdentities()
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
-    function getId(){
+    /**
+     * @{initialize}
+     */
+    function getID(){
         return $this->getData(self::COMMENT_ID);
-
     }
-    function getTitle()
-    {
-        return $this->getData(self::TITLE);
+    /**
+     * @{initialize}
+     */
+    function getContent(){
+        return $this->getData(self::CONTENT);
     }
-    function getUrl()
-    {
-             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-             $urlBuilder=$objectManager->get("Magento\Framework\UrlInterface");
-              return $urlBuilder->getUrl("blog/".$this->getUrlKey());
-   }
-   function getContent()
-   {
-       return $this->getData(self::CONTENT);
-   }
-   function getPostID(){
+    /**
+     * @{initialize}
+     */
+    function getPostID(){
         return $this->getData(self::POST_ID);
-
-   }
-   function getAuthor()
-   {
-       return $this->getData(self::AUTHOR);
-   }
-   function getCreationTime()
-   {
-       return $this->getData(self::CREATION_TIME);
-   }
-    function setID($id){
-               $this->setData(self::COMMENT_ID,$id);
-              return $this;
+    }
+    /**
+     * @{initialize}
+     */
+    function getAuthor(){
+        return $this->getData(self::AUTHOR);
+    }
+    /**
+     * @{initialize}
+     */
+    function getEmail(){
+        return $this->getData(self::EMAIL);
+    }
+    /**
+     * @{initialize}
+     */
+    function getCreationTime(){
+        return $this->getData(self::CREATION_TIME);
+    }
+    /**
+     * @{initialize}
+     */
+    function isActive(){
+        return $this->getData(self::IS_ACTIVE);
     }
 
-   function setAuthor($author){
-          $this->setData(self::AUTHOR,$author);
-           return $this;
-   }
-
+    function setID($id){
+        $this->setData(self::COMMENT_ID,$id);
+        return $this;
+    }
+    /**
+     * @{initialize}
+     */
+    function setAuthor($author){
+        $this->setData(self::AUTHOR,$author);
+        return $this;
+    }
+    /**
+     * @{initialize}
+     */
+    function setEmail($email){
+        $this->setData(self::EMAIL,$email);
+        return $this;
+    }
     function setContent($content){
-    $this->setData(self::CONTENT,$content);
-          return $this;
-   }
-
+        $this->setData(self::CONTENT,$content);
+        return $this;
+    }
+    /**
+     * @{initialize}
+     */
     function setPostID($postId){
-         $this->setData(self::POST_ID,$postId);
-           return $this;
-   }
-
+        $this->setData(self::POST_ID,$postId);
+        return $this;
+    }
+    /**
+     * @{initialize}
+     */
     function setCreationTime($creatTime){
         $this->setData(self::CREATION_TIME,$creatTime);
         return $this;
     }
-
-
+    function setIsActive($isActive){
+        $this->setData(self::IS_ACTIVE,$isActive);
+        return $this;
+    }
 }
