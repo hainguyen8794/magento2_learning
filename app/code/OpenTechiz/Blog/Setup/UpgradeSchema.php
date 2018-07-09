@@ -26,11 +26,11 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 ->setComment('Comment Table');
             $installer->getConnection()->createTable($table);*/
             $tableName = $installer->getTable('opentechiz_blog_comment');
-            $installer->getConnection()->addColumn($tableName, 'is_active', [
-                'type' => Table::TYPE_SMALLINT,
+            $installer->getConnection()->addColumn($tableName, 'email', [
+                'type' => Table::TYPE_TEXT,
+                'length' => 100,
                 'nullable' => false,
-                'default' => 0,
-                'comment' => 'Is Comment Active?'
+                'comment' => 'Email'
             ]);
         }
         $installer->endSetup();
