@@ -32,6 +32,7 @@ class Save extends \Magento\Backend\App\Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
+
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
@@ -41,11 +42,22 @@ class Save extends \Magento\Backend\App\Action
             if ($id) {
                 $model->load($id);
             }
-            $model->setData($data);
+
+          /*  $model->setData($data);*/
+           /* $model->getUrl();
+            $model->getTitle();
+            $model->getContent();
+            $model->isActive();*/
+           $model->setUrlKey($data['url_key']);
+           $model->setTitle($data['title']);
+           $model->setContent($data['title']);
+           $model->setIsActive($data['is_active']);
+         /*  $model->save();*/
             $this->_eventManager->dispatch(
                 'blog_post_prepare_save',
                 ['post' => $model, 'request' => $this->getRequest()]
             );
+
             try {
                 $model->save();
                 $this->messageManager->addSuccess(__('You saved this Post.'));

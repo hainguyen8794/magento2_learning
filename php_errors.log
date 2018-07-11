@@ -421,3 +421,20 @@ Stack trace:
 #5 /var/www/html/magento2.2/vendor/magento/framework/ObjectManager/Factory/Dynamic/Developer.php(48): Magento\Frame in /var/www/html/magento2.2/vendor/magento/framework/Code/Generator.php on line 115
 [09-Jul-2018 09:47:22 UTC] PHP Parse error:  syntax error, unexpected '$resultRedirect' (T_VARIABLE) in /var/www/html/magento2.2/app/code/OpenTechiz/Blog/Controller/Comment/Save.php on line 49
 [09-Jul-2018 09:47:32 UTC] PHP Parse error:  syntax error, unexpected '$resultRedirect' (T_VARIABLE) in /var/www/html/magento2.2/app/code/OpenTechiz/Blog/Controller/Comment/Save.php on line 49
+[11-Jul-2018 04:59:16 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /var/www/html/magento2.2/app/code/OpenTechiz/Blog/Controller/Adminhtml/Post/Save.php on line 47
+[11-Jul-2018 07:37:22 UTC] PHP Fatal error:  Uncaught Error: Call to a member function geturl() on array in /var/www/html/magento2.2/app/code/OpenTechiz/Blog/Controller/Adminhtml/Post/Save.php:51
+Stack trace:
+#0 /var/www/html/magento2.2/generated/code/OpenTechiz/Blog/Controller/Adminhtml/Post/Save/Interceptor.php(24): OpenTechiz\Blog\Controller\Adminhtml\Post\Save->execute()
+#1 /var/www/html/magento2.2/vendor/magento/framework/App/Action/Action.php(107): OpenTechiz\Blog\Controller\Adminhtml\Post\Save\Interceptor->execute()
+#2 /var/www/html/magento2.2/vendor/magento/module-backend/App/AbstractAction.php(229): Magento\Framework\App\Action\Action->dispatch(Object(Magento\Framework\App\Request\Http))
+#3 /var/www/html/magento2.2/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Backend\App\AbstractAction->dispatch(Object(Magento\Framework\App\Request\Http))
+#4 /var/www/html/magento2.2/vendor/magento/framework/Interception/Interceptor.php(138): OpenTechiz\Blog\Controller\Adminhtml\Post\Save\Interceptor->___callParent('dispatch', Array)
+#5 /va in /var/www/html/magento2.2/app/code/OpenTechiz/Blog/Controller/Adminhtml/Post/Save.php on line 51
+[11-Jul-2018 07:38:09 UTC] PHP Fatal error:  Uncaught Error: Call to a member function getTitle() on array in /var/www/html/magento2.2/app/code/OpenTechiz/Blog/Controller/Adminhtml/Post/Save.php:52
+Stack trace:
+#0 /var/www/html/magento2.2/generated/code/OpenTechiz/Blog/Controller/Adminhtml/Post/Save/Interceptor.php(24): OpenTechiz\Blog\Controller\Adminhtml\Post\Save->execute()
+#1 /var/www/html/magento2.2/vendor/magento/framework/App/Action/Action.php(107): OpenTechiz\Blog\Controller\Adminhtml\Post\Save\Interceptor->execute()
+#2 /var/www/html/magento2.2/vendor/magento/module-backend/App/AbstractAction.php(229): Magento\Framework\App\Action\Action->dispatch(Object(Magento\Framework\App\Request\Http))
+#3 /var/www/html/magento2.2/vendor/magento/framework/Interception/Interceptor.php(58): Magento\Backend\App\AbstractAction->dispatch(Object(Magento\Framework\App\Request\Http))
+#4 /var/www/html/magento2.2/vendor/magento/framework/Interception/Interceptor.php(138): OpenTechiz\Blog\Controller\Adminhtml\Post\Save\Interceptor->___callParent('dispatch', Array)
+#5 / in /var/www/html/magento2.2/app/code/OpenTechiz/Blog/Controller/Adminhtml/Post/Save.php on line 52

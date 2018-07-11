@@ -45,9 +45,9 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function _prepareForm()
     {
-        /** @var \Ashsmith\Blog\Model\Post $model */
+
         $model = $this->_coreRegistry->registry('blog_post');
-        /** @var \Magento\Framework\Data\Form $form */
+
         $form = $this->_formFactory->create(
             ['data' => ['id' => 'edit_form', 'action' => $this->getData('action'), 'method' => 'post']]
         );
