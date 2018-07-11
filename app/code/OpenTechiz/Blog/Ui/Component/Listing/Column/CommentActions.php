@@ -47,10 +47,10 @@ class CommentActions extends Column
             foreach ($dataSource['data']['items'] as & $item) {
                 $name = $this->getData('name');
                 if (isset($item['comment_id'])) {
-                    $item[$name]['edit'] = [
+                 /*   $item[$name]['edit'] = [
                         'href' => $this->urlBuilder->getUrl($this->editUrl, ['comment_id' => $item['comment_id']]),
                         'label' => __('Edit')
-                    ];
+                    ];*/
                     $item[$name]['delete'] = [
                         'href' => $this->urlBuilder->getUrl(self::BLOG_URL_PATH_DELETE_COMMENT, ['comment_id' => $item['comment_id']]),
                         'label' => __('Delete'),
