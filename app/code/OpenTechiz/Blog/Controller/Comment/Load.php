@@ -15,7 +15,7 @@ class Load extends Action
     function __construct(
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
         \OpenTechiz\Blog\Model\ResourceModel\Comment\CollectionFactory $commentCollectionFactory,
-        \Magento\Customer\Model\Session $customerSession,
+        Session $customerSession,
         \Magento\Framework\App\Action\Context $context
     )
     {
