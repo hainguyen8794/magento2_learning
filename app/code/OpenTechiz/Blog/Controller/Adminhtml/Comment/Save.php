@@ -33,18 +33,12 @@ class Save extends \Magento\Backend\App\Action
         return $this->_authorization->isAllowed('OpenTechiz_Blog::save_comment');
     }
 
-    /**
-     * Save action
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-            /** @var \OpenTechiz\Blog\Model\Comment $model */
             $model = $this->_commentFactory->create();
             $id = $this->getRequest()->getParam('comment_id');
             if ($id) {

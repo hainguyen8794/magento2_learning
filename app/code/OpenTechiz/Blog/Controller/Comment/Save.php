@@ -64,29 +64,33 @@ namespace OpenTechiz\Blog\Controller\Comment;
 use \Magento\Framework\App\Action\Action;
 class Save extends Action
 {
-    /**
-     * @var \Magento\Framework\Controller\Result\JsonFactory
-     */
+
     protected $_resultJsonFactory;
     protected $_inlineTranslation;
     protected $_transportBuilder;
     protected $_scopeConfig;
     protected $_sendEmail;
+    protected $_commentFactory;
+    protected $_customerSession;
     function __construct(
         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
         \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \OpenTechiz\Blog\Helper\SendEmail $sendEmail,
-        \Magento\Framework\App\Action\Context $context
+        \Magento\Framework\App\Action\Context $context,
+        \Magento\Customer\Model\Session $customerSession,
+        \OpenTechiz\Blog\Model\CommentFactory $commentFactory
     )
     {
+        $this->_customerSession = $customerSession;
         $this->_resultFactory = $context->getResultFactory();
         $this->_resultJsonFactory = $resultJsonFactory;
         $this->_inlineTranslation = $inlineTranslation;
         $this->_transportBuilder = $transportBuilder;
         $this->_scopeConfig = $scopeConfig;
         $this->_sendEmail = $sendEmail;
+        $this->_commentFactory = $commentFactory;
         parent::__construct($context);
     }
     public function execute()
@@ -102,7 +106,13 @@ class Save extends Action
         $this->_inlineTranslation->suspend();
         $postObject = new \Magento\Framework\DataObject();
         $postObject->setData($postData);
-        // validate data
+        $customer = null;
+        if($this->_customerSession->isLoggedIn()){
+            $customer = $this->_customerSession->getCustomer();
+            $postData['author'] = $customer->getName();
+            $postData['email'] = $customer->getEmail();
+            $postData['user_id'] = $customer->getId();
+        }
         if(!\Zend_Validate::is(trim($postData['author']), 'NotEmpty'))
         {
             $error = true;
@@ -110,8 +120,7 @@ class Save extends Action
         }
         $jsonResultResponse = $this->_resultJsonFactory->create();
         if(!$error)
-        {
-            // save data to database
+        {   //save data
             $author   = $postData['author'];
             $content    = $postData['content'];
             $post_id = $postData['post_id'];
@@ -121,6 +130,9 @@ class Save extends Action
             $comment->setContent($content);
             $comment->setPostID($post_id);
             $comment->setEmail($email);
+            if(isset($postData['user_id'])){
+                $comment->setUserID($postData['user_id']);
+            }
             $comment->save();
             $jsonResultResponse->setData([
                 'result' => 'success',

@@ -7,36 +7,35 @@
  */
 
 namespace OpenTechiz\Blog\Controller\Adminhtml\Post;
-
-
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
-class Save extends \Magento\Backend\App\Action
+use OpenTechiz\Blog\Model\Post;
+use Magento\Framework\App\Request\DataPersistorInterface;
+use Magento\Framework\Exception\LocalizedException;
+class Save extends Action
 {
-    public function __construct(Action\Context $context)
+    const ADMIN_RESOURCE = 'OpenTechiz_Blog::post';
+    protected $_postFactory;
+    protected $_backendSession;
+    public function __construct(Action\Context $context,
+        \OpenTechiz\Blog\Model\PostFactory $postFactory,
+        \Magento\Backend\Model\Session $backendSession)
     {
+        $this->_backendSession = $backendSession;
+        $this->_postFactory = $postFactory;
         parent::__construct($context);
     }
-    /**
-     * {@inheritdoc}
-     */
+
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('OpenTechiz::save');
     }
-    /**
-     * Save action
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
+
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-
             $model = $this->_objectManager->create('OpenTechiz\Blog\Model\Post');
             $id = $this->getRequest()->getParam('post_id');
             if ($id) {

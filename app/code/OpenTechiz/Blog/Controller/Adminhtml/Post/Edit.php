@@ -8,6 +8,8 @@
 
 namespace OpenTechiz\Blog\Controller\Adminhtml\Post;
 use Magento\Backend\App\Action;
+use Magento\Backend\Model\Session;
+use OpenTechiz\Blog\Model\PostFactory;
 
 
 class Edit extends Action
@@ -15,10 +17,16 @@ class Edit extends Action
 
     protected $_coreRegistry=null;
     protected $resultPageFactory;
+    protected $_postFactory;
+    protected $_backendSession;
     public function __construct(Action\Context $context,
                                 \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+                                \OpenTechiz\Blog\Model\PostFactory $postFactory,
+                                \Magento\Backend\Model\Session $backendSession,
                                 \Magento\Framework\Registry $registry)
     {
+        $this->_postFactory = $postFactory;
+        $this->_backendSession = $backendSession;
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $registry;
         parent::__construct($context);
@@ -40,7 +48,7 @@ class Edit extends Action
     public function execute()
     {
         $id = $this->getRequest()->getParam('post_id');
-        $model = $this->_objectManager->create('OpenTechiz\Blog\Model\Post');
+        $model = $this->_postFactory->create();
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
@@ -50,7 +58,7 @@ class Edit extends Action
                 return $resultRedirect->setPath('*/*/');
             }
         }
-        $data = $this->_objectManager->get('Magento\Backend\Model\Session')->getFormData(true);
+        $data = $this->_backendSession->getFormData(true);
         if (!empty($data)) {
             $model->setData($data);
         }
