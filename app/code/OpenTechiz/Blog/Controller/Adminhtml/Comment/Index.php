@@ -28,8 +28,8 @@ class Index extends \Magento\Backend\App\Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('OpenTechiz_Blog::comments');
-        $resultPage->addBreadcrumb(__('Blog Comment'), __('Blog Comment'));
+        $resultPage->setActiveMenu('OpenTechiz_Blog::comment');
+        $resultPage->addBreadcrumb(__('Blog Comments'), __('Blog Comments'));
         $resultPage->addBreadcrumb(__('Manage Blog Comment'), __('Manage Blog Comment'));
         $resultPage->getConfig()->getTitle()->prepend(__('Blog Commentss'));
         return $resultPage;

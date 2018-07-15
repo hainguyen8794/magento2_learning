@@ -31,5 +31,15 @@ class PostList extends \Magento\Framework\View\Element\Template
 		}
 		return $this->getData("posts");
 	}
+    public function getIdentities()
+    {
+        $identities = [];
+        $posts = $this->getPosts();
+        foreach ($posts as $post) {
+            $identities = array_merge($identities, $post->getIdentities());
+        }
+        $identities[] = \OpenTechiz\Blog\Model\Post::CACHE_TAG . '_' . 'list';
+        return $identities;
+    }
 
 }

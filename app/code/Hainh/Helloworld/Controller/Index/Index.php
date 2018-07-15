@@ -26,13 +26,15 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
-        $this->_registry->register('custom_var', 'Test Value123aaaaaaaaaa');
+       /* $this->_registry->register('custom_var', 'Test Value123aaaaaaaaaa');
         $resultPage = $this->_resultPageFactory->create();
-        return $resultPage;
+        return $resultPage;*/
         /*     $debugBackTrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
              foreach ($debugBackTrace as $item)
              {    echo @$item['class'] . @$item['type'] . @$item['function'] . "\n";
              echo "<pre>";}
              die();*/
+        echo "bai2";
+        exit;
     }
 }

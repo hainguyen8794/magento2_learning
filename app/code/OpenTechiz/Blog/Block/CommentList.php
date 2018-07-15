@@ -15,17 +15,19 @@ use OpenTechiz\Blog\Model\ResourceModel\Comment\Collection as CommentCollection;
 class CommentList extends Template
 {
     protected $_commentCollectionFactory;
-
+    protected $_resultJsonFactory;
 	protected $_request;
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \OpenTechiz\Blog\Model\ResourceModel\Comment\CollectionFactory $commentCollectionFactory,
+        \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
         \Magento\Framework\App\RequestInterface $request,
         array $data = []
     )
     {
         $this->_commentCollectionFactory = $commentCollectionFactory;
         $this->_request = $request;
+        $this->_resultJsonFactory;
         parent::__construct($context, $data);
     }
     public function getPostID(){
@@ -36,12 +38,23 @@ class CommentList extends Template
         if(!$this->hasData("cmt")){
             $comment = $this->_commentCollectionFactory
                 ->create()
-                ->addFilter('post_id',$post_id)
+                    ->addFieldToFilter('post_id', $post_id)
+                				->addFieldToFilter('is_active', 1)
                 ->addOrder(CommentInterface::CREATION_TIME,
 					CommentCollection::SORT_ORDER_DESC
                 		);
             $this->setData("cmt",$comment);
         }
         return $this->getData("cmt");
+    }
+    public function getIdentities()
+    {
+        $identities = [];
+        foreach ($this->getComments() as $comment) {
+
+            $identities = array_merge($identities, $comment->getIdentities());
+        }
+        $identities[] = \OpenTechiz\Blog\Model\Comment::CACHE_COMMENT_POST_TAG.'_'.$this->getPostID();
+        return $identities;
     }
 }

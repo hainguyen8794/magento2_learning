@@ -12,8 +12,15 @@ use OpenTechiz\Blog\Model\ResourceModel\Post\Collection as PostCollection;
 use Magento\Framework\View\Element\Template;
 class SaveComment extends Template
 {
-    public function __construct(Template\Context $context,\Magento\Framework\App\RequestInterface $request, array $data = [])
+    protected $_request;
+    protected $_customerSession;
+    public function __construct(Template\Context $context,
+                                \Magento\Framework\App\RequestInterface $request,
+                                \Magento\Customer\Model\Session $customerSession,
+                                array $data = [])
     {
+        $this->_request = $request;
+        $this->_customerSession = $customerSession;
         parent::__construct($context, $data);
     }
     public function getFormAction(){
@@ -27,5 +34,12 @@ class SaveComment extends Template
     {
         return '/magento2.2/blog/comment/load';
     }
-
+    public function getAjaxNotificationLoadUrl()
+    {
+        return '/magento2.2/blog/notification/load';
+    }
+    public function isLoggedIn()
+    {
+        return $this->_customerSession->isLoggedIn();
+    }
 }

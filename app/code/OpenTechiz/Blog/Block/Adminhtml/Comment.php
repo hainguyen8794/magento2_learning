@@ -16,7 +16,7 @@ class Comment extends  Container
     {
         $this->_controller = "adminhtml_comment";
         $this->_blockGroup = "OpenTechiz_Blog";
-        $this->_headerText = _('Manage Comment');
+        $this->_headerText = _('Manage Comments');
         parent::_construct();
         if ($this->_isAllowedAction('OpenTechiz_Blog::save_comment')){
             $this->buttonList->update('add','label',_('Add New Post'));
