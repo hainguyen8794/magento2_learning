@@ -23,7 +23,7 @@ class UserInfo extends AbstractHelper
     }
     public function isLoggedIn()
     {
-        $isLoggedIn = $this->httpContext->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH);
+        $isLoggedIn = $this->_httpContext->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH);
         return $isLoggedIn;
     }
 }
