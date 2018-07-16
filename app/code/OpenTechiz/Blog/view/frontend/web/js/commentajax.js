@@ -1,17 +1,19 @@
 define([
     "jquery",
     "jquery/ui",
-    "loadcomment",
-    "loadnotification"
-], function($, ui, loadcomment, notification) {
+    "loadcomment"
+], function($, ui, loadcomment) {
     "use strict";
 
     function main(config, element) {
         var $element = $(element);
         loadcomment.loadComments(config);
+
         var AjaxCommentPostUrl = config.AjaxCommentPostUrl;
-        var page = 1;
+
+        //var page = 1;
         //notification.loadNotifications(config, page);
+
         var dataForm = $('#comment-form');
         dataForm.mage('validation', {});
 
@@ -25,7 +27,6 @@ define([
                     data: param,
                     type: 'POST'
                 }).done(function(data){
-                    console.log(data);
                     if(data.result== "error"){
                         $('.note').css('color', 'red');
                         $('.note').html(data.message);
@@ -38,12 +39,12 @@ define([
                 });
             }
         });
-        console.log(data);
-        // $(document).on('click', '#load-more',function(){
-        //     event.preventDefault();
-        //     page++;
-        //     //notification.loadNotifications(config, page);
-        // });
+
+        $(document).on('click', '#load-more',function(){
+            event.preventDefault();
+            page++;
+            notification.loadNotifications(config, page);
+        });
     };
     return main;
 });

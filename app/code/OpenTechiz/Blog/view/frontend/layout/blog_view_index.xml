@@ -5,7 +5,7 @@
             <block class="OpenTechiz\Blog\Block\PostView" name="blog.list"
                    template="OpenTechiz_Blog::view.phtml" />
             <block class="OpenTechiz\Blog\Block\CommentList" name="post.comment"
-                   template="OpenTechiz_Blog::commentlist.phtml"  />
+                   template="OpenTechiz_Blog::approvedcomment.phtml"  />
             <block class="OpenTechiz\Blog\Block\SaveComment" name="add.comment"
                    template="OpenTechiz_Blog::commentform.phtml" />
             <block class="OpenTechiz\Blog\Block\CommentList" name="post.noapprovecomment"

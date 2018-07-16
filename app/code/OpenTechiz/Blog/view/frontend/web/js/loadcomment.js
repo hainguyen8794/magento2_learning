@@ -18,8 +18,10 @@ define([
                 }
             }).done(function(data){
                 var template = mageTemplate('#cmt-not-active');
+                $('ul#data').empty();
                 if(data==false) return false;
                 var comments = data.items;
+                console.log(comments);
                 comments.forEach(function(cmt){
                     var newField = template({
                         cmt: cmt
