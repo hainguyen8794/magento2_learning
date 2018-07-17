@@ -15,15 +15,17 @@ class Index extends \Magento\Framework\App\Action\Action
 {
     protected $_resultPageFactory;
     protected $_registry;
-
-    public function __construct(Context $context, \Magento\Framework\View\Result\PageFactory $resultPageFactory, \Magento\Framework\Registry $registry)
+    protected $bannerFactory;
+    public function __construct(Context $context,
+                                \Magento\Framework\View\Result\PageFactory $resultPageFactory,
+                                \Magento\Framework\Registry $registry
+    , BannerFactory $bannerFactory)
     {
-
+        $this->bannerFactory =$bannerFactory;
         $this->_resultPageFactory = $resultPageFactory;
         $this->_registry = $registry;
         parent::__construct($context);
     }
-
 
     public function execute()
     {
@@ -35,7 +37,7 @@ class Index extends \Magento\Framework\App\Action\Action
              {    echo @$item['class'] . @$item['type'] . @$item['function'] . "\n";
              echo "<pre>";}
              die();*/
-        $banner = $this->_objectManager->create('Robin\Bai1\Model\Banner');
+       /* $banner = $this->_objectManager->create('Robin\Bai1\Model\Banner');*/
        /* $banner->addData([
             'link'=>'banner link',
             'image'=>'avatar.png',
@@ -45,15 +47,22 @@ class Index extends \Magento\Framework\App\Action\Action
       /* $data =$banner->load(1)->getData();
        var_dump($data);*/
        //update data
-        $data = $banner->load(1);
+      /*  $data = $banner->load(1);
         $data->setImage('logo.png')->save();
-        $data1 = $banner->load(1)->getData();
+        $data1 = $banner->load(1)->getData();*/
         /*var_dump($data1);*/
-        echo  "done";
+      /*  echo  "done";*/
         //getSelect để lấy câu lênh query
         // addfield to Select
-        $collection = $banner->getCollection();
+      /* $collection = $banner->getCollection();
         $data2= $collection->addFieldToSelect('image')->addFieldToFilter('id',['gt'=>0])->getData();
-        var_dump($data2);
+        var_dump($data2);*/
+
+    $banner = $this->bannerFactory->create();
+    /* $data = $banner->load(1)->getData();
+     print_r(json_encode($data));*/
+    $collection = $banner->getCollection();
+    $data = $collection->addFieldToFilter('id',['gt'=>2])->getData();
+        print_r(json_encode($data));
     }
 }

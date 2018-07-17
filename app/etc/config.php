@@ -150,7 +150,7 @@ return [
     'Mageplaza_Core' => 1,
     'Mgt_DeveloperToolbar' => 1,
     'OpenCert_Hello' => 1,
-    'OpenTechiz_Blog' => 1,
+    'OpenTechiz_Blog' => 0,
     'Robin_Bai1' => 1,
     'Shopial_Facebook' => 1,
     'ShowCategory_CatewithImage' => 1,
