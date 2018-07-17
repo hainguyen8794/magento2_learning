@@ -579,3 +579,6 @@ Stack trace:
 #3 /var/www/html/magento2.2/vendor/magento/framework/Code/Reader/ClassReader.php(19): ReflectionClass->__construct('Magento\\Framewo...')
 #4 /var/www/html/magento2.2/vendor/magento/framework/ObjectManager/Definition/Runtime.php(44): Magento\Framework\Code\Reader\ClassReader->getConstructor('Magento\\Framewo...')
 #5 /var/www/html/magento2.2/vendor/magento/framework/ObjectManager/Factory/Dynamic/Developer.php(48): Magento\Frame in /var/www/html/magento2.2/vendor/magento/framework/Code/Generator.php on line 115
+[17-Jul-2018 11:26:56 Asia/Krasnoyarsk] PHP Warning:  require(/var/www/html/magento2.2/vendor/amzn/amazon-pay-and-login-magento-2-module/src/Core/registration.php): failed to open stream: No such file or directory in /var/www/html/magento2.2/vendor/composer/autoload_real.php on line 59
+[17-Jul-2018 11:26:56 Asia/Krasnoyarsk] PHP Fatal error:  require(): Failed opening required '/var/www/html/magento2.2/vendor/amzn/amazon-pay-and-login-magento-2-module/src/Core/registration.php' (include_path='/var/www/html/magento2.2/vendor/magento/zendframework1/library:.:/usr/share/php') in /var/www/html/magento2.2/vendor/composer/autoload_real.php on line 59
+[17-Jul-2018 06:44:00 UTC] PHP Fatal error:  Class 'Magento\Backend\App\Action\Action' not found in /var/www/html/magento2.2/app/code/Robin/Bai1/Controller/Adminhtml/Index/Index.php on line 14
