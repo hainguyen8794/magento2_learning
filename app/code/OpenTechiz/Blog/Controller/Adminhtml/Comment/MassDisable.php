@@ -1,27 +1,39 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 11/07/2018
- * Time: 16:22
- */
-
 namespace OpenTechiz\Blog\Controller\Adminhtml\Comment;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use OpenTechiz\Blog\Model\ResourceModel\Comment\CollectionFactory;
 use Magento\Framework\Controller\ResultFactory;
-use Magento\Backend\App\Action;
-class MassDisable extends Action
+/**
+ * Class MassDisable
+ */
+class MassDisable  extends \Magento\Backend\App\Action
 {
+    /**
+     * @var Filter
+     */
     protected $filter;
+    /**
+     * @var CollectionFactory
+     */
     protected $collectionFactory;
-    public function __construct(Action\Context $context ,Filter $filter , CollectionFactory $collectionFactory)
+    /**
+     * @param Context $context
+     * @param Filter $filter
+     * @param CollectionFactory $collectionFactory
+     */
+    public function __construct(Context $context, Filter $filter, CollectionFactory $collectionFactory)
     {
-        $this->filter= $filter;
+        $this->filter = $filter;
         $this->collectionFactory = $collectionFactory;
         parent::__construct($context);
     }
+    /**
+     * Execute action
+     *
+     * @return \Magento\Backend\Model\View\Result\Redirect
+     * @throws \Magento\Framework\Exception\LocalizedException|\Exception
+     */
     public function execute()
     {
         $collection = $this->filter->getCollection($this->collectionFactory->create());
@@ -34,5 +46,4 @@ class MassDisable extends Action
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
     }
-
 }

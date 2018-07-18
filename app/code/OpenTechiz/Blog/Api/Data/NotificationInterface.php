@@ -1,32 +1,45 @@
-<?php
+<?php 
 namespace OpenTechiz\Blog\Api\Data;
 /**
- * Created by PhpStorm.
- * User: hainh
- * Date: 14/07/2018
- * Time: 00:51
- */
+* Blog Post Interface
+* @api
+*/
 interface NotificationInterface
 {
-    const  NOTI_ID = 'noti_id';
-    const  CONTENT  = 'conent';
-    const POST_ID = 'post_id';
-    const USER_ID = 'user_id';
-    const COMMENT_ID = 'comment_id';
-    const IS_VIEWED = 'is_viewed';
-    const CREATION_TIME = 'creation_time';
-    function getID();
-    function getContent();
-    function getPostID();
-    function getUserID();
-    function getCommentID();
-    function isViewed();
-    function getCreationTime();
-    function setID($id);
-    function setContent($content);
-    function setPostID($postID);
-    function setCommentID($commentID);
-    function setIsViewed($isViewed);
-    function setUserID($userID);
-    function setCreationTime($creatTime);
- }
+	/**#@+
+     * Constants for keys of data array. Identical to the name of the getter in snake case
+     */
+    const NOTI_ID                  = 'noti_id';
+    const CONTENT                  = 'content';
+    const POST_ID                  = 'post_id';
+    const USER_ID					= 'user_id';
+    const COMMENT_ID			= 'comment_id';
+    const IS_VIEWED				= 'is_viewed';
+    const CREATION_TIME            = 'creation_time';
+
+	function getId();
+
+	function getContent();
+
+	function getPostId();
+
+	function getUserId();
+
+	function getCommentId();
+
+	function isViewed($isViewed = null);
+
+	function getCreationTime();
+
+	function setId($id);
+
+	function setContent($content);
+
+	function setPostId($postID);
+
+	function setCommentId($commentID);
+
+	function setUserId($userID);
+
+	function setCreationTime($creatTime);
+}

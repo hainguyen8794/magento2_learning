@@ -1,25 +1,23 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 15/07/2018
- * Time: 22:50
- */
+<?php 
 
 namespace OpenTechiz\Blog\Observer;
+
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Framework\Indexer\CacheContext;
 use Magento\Framework\Event\ManagerInterface as EventManager;
 
-
 class Approval implements ObserverInterface
 {
     protected $_postFactory;
-    protected $_notiFactory;
-    protected $_notiCollectionFactory;
-    protected $_cacheContext;
-    protected $_eventManager;
 
+    protected $_notiFactory;
+
+    protected $_notiCollectionFactory;
+
+    protected $_cacheContext;
+
+    protected $_eventManager;
+ 
     public function __construct(
         \OpenTechiz\Blog\Model\ResourceModel\Notification\CollectionFactory $notiCollectionFactory,
         \OpenTechiz\Blog\Model\PostFactory $postFactory,
@@ -34,6 +32,7 @@ class Approval implements ObserverInterface
         $this->_cacheContext = $cacheContext;
         $this->_eventManager = $eventManager;
     }
+
     public function execute(\Magento\Framework\Event\Observer $observer) {
         $comment = $observer->getData('comment');
         $originalComment = $comment->getOrigData();
@@ -42,6 +41,7 @@ class Approval implements ObserverInterface
         if(!$request->getParam('comment_id')) return;
         $newStatus = $comment->isActive();
         $oldStatus = $originalComment['is_active'];
+
         $user_id = $originalComment['user_id'];
         $post_id = $originalComment['post_id'];
         $comment_id = $originalComment['comment_id'];
@@ -49,6 +49,7 @@ class Approval implements ObserverInterface
         $notiCheck = $this->_notiCollectionFactory->create()
             ->addFieldToFilter('comment_id', $comment_id);
         if($notiCheck->count()>0) return;
+
         // if user_id null then return
         if(!$user_id) return;
         if($oldStatus != 0) return;
@@ -65,10 +66,9 @@ class Approval implements ObserverInterface
         $noti->setCommentID($comment_id);
         $noti->setPostID($post_id);
         $noti->save();
+
         // clean cache
-        $this->_cacheContext->registerEntities(\OpenTechiz\Blog\Model\Post::CACHE_TAG, [$post_id]);
+        $this->_cacheContext->registerEntities(\OpenTechiz\Blog\Model\Comment::CACHE_COMMENT_POST_TAG, [$post_id]);
         $this->_eventManager->dispatch('clean_cache_by_tags', ['object' => $this->_cacheContext]);
     }
-
-
 }

@@ -1,9 +1,6 @@
 <?php
 namespace OpenTechiz\Blog\Model\ResourceModel\Post;
-/**
- * Class Collection
- * @package OsmanSorkar\Blog\Model\ResourceModel\Post
- */
+
 class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
 	

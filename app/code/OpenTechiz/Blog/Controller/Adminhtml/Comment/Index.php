@@ -30,7 +30,7 @@ class Index extends \Magento\Backend\App\Action
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('OpenTechiz_Blog::comment');
         $resultPage->addBreadcrumb(__('Blog Comments'), __('Blog Comments'));
-        $resultPage->addBreadcrumb(__('Manage Blog Comment'), __('Manage Blog Comment'));
+        $resultPage->addBreadcrumb(__('Manage Blog Comments'), __('Manage Blog Comments'));
         $resultPage->getConfig()->getTitle()->prepend(__('Blog Comments'));
         return $resultPage;
     }

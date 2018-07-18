@@ -7,18 +7,18 @@
             <item name="deps" xsi:type="string">blog_post_form.blog_post_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Manage Post</item>
-        <item name="config" xsi:type="array">
+         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
             <item name="namespace" xsi:type="string">blog_post_form</item>
         </item>
         <item name="template" xsi:type="string">templates/form/collapsible</item>
-        <item name="buttons" xsi:type="array">
+         <item name="buttons" xsi:type="array">
             <item name="back" xsi:type="string">OpenTechiz\Blog\Block\Adminhtml\Post\Edit\BackButton</item>
             <item name="delete" xsi:type="string">OpenTechiz\Blog\Block\Adminhtml\Post\Edit\DeleteButton</item>
             <item name="reset" xsi:type="string">OpenTechiz\Blog\Block\Adminhtml\Post\Edit\ResetButton</item>
             <item name="save" xsi:type="string">OpenTechiz\Blog\Block\Adminhtml\Post\Edit\SaveButton</item>
             <item name="save_and_continue" xsi:type="string">OpenTechiz\Blog\Block\Adminhtml\Post\Edit\SaveAndContinueButton</item>
-        </item>
+        </item>        
     </argument>
     <dataSource name="blog_post_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
@@ -105,6 +105,6 @@
                     <item name="source" xsi:type="string">content</item>
                 </item>
             </argument>
-        </field>
-    </fieldset>
-</form>
+        </field>        
+     </fieldset>
+ </form>

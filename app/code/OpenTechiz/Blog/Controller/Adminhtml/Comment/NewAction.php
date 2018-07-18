@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 11/07/2018
- * Time: 17:37
- */
-
 namespace OpenTechiz\Blog\Controller\Adminhtml\Comment;
-
-
-class NewAction
+class NewAction extends \Magento\Backend\App\Action
 {
+    /**
+     * @var \Magento\Backend\Model\View\Result\Forward
+     */
     protected $resultForwardFactory;
     /**
      * @param \Magento\Backend\App\Action\Context $context
@@ -41,5 +35,4 @@ class NewAction
         $resultForward = $this->resultForwardFactory->create();
         return $resultForward->forward('edit');
     }
-
 }

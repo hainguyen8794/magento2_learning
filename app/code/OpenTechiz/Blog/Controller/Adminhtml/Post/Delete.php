@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 06/07/2018
- * Time: 16:10
- */
-
 namespace OpenTechiz\Blog\Controller\Adminhtml\Post;
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
-class Delete extends Action
+class Delete extends \Magento\Backend\App\Action
 {
-
     protected $_postFactory;
+
     function __construct(
         \OpenTechiz\Blog\Model\PostFactory $postFactory,
         \Magento\Backend\App\Action\Context $context
@@ -22,15 +15,23 @@ class Delete extends Action
         parent::__construct($context);
     }
 
-    protected function _isAllowed(){
+    protected function _isAllowed()
+    {
         return $this->_authorization->isAllowed('OpenTechiz_Blog::delete');
     }
-    public function execute(){
+    /**
+     * Delete action
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
+    public function execute()
+    {
         $id = $this->getRequest()->getParam('post_id');
+        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
-                $model = $this->_postFactory->create('OpenTechiz\Blog\Model\Post');
+                $model = $this->_postFactory->create();
                 $model->load($id);
                 $model->delete();
                 $this->messageManager->addSuccess(__('The post has been deleted.'));
@@ -43,5 +44,4 @@ class Delete extends Action
         $this->messageManager->addError(__('We can\'t find a post to delete.'));
         return $resultRedirect->setPath('*/*/');
     }
-
 }

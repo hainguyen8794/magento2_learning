@@ -1,6 +1,8 @@
 <?php
 namespace OpenTechiz\Blog\Block\Adminhtml\Post\Edit;
+
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
+
 /**
  * Class BackButton
  */
@@ -18,6 +20,7 @@ class BackButton extends GenericButton implements ButtonProviderInterface
             'sort_order' => 10
         ];
     }
+
     /**
      * Get URL for back (reset) button
      *

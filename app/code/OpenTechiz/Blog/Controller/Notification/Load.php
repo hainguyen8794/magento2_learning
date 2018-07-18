@@ -1,26 +1,26 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 15/07/2018
- * Time: 20:30
- */
-
 namespace OpenTechiz\Blog\Controller\Notification;
 use \Magento\Framework\App\Action\Action;
-use Magento\Framework\App\Action\Context;
 use OpenTechiz\Blog\Api\Data\NotificationInterface;
-use OpenTechiz\Blog\Model\ResourceModel\Comment\Collection as CommentCollection;
+use OpenTechiz\Blog\Model\ResourceModel\Notification\Collection as NotificationCollection;
 
-class Load extends  Action
+class Load extends Action
 {
+    /**
+     * @var \Magento\Framework\Controller\Result\JsonFactory
+     */
     protected $_resultJsonFactory;
+
     protected $_notificationCollectionFactory;
+
     protected $_customerSession;
-    function __construct(Context $context,
-                         \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
-                         \OpenTechiz\Blog\Model\ResourceModel\Notification\CollectionFactory $notificationCollectionFactory,
-                         \Magento\Customer\Model\Session $customerSession)
+
+    function __construct(
+        \Magento\Framework\Controller\Result\JsonFactory $resultJsonFactory,
+        \OpenTechiz\Blog\Model\ResourceModel\Notification\CollectionFactory $notificationCollectionFactory,
+        \Magento\Customer\Model\Session $customerSession,
+        \Magento\Framework\App\Action\Context $context
+    )
     {
         $this->_resultFactory = $context->getResultFactory();
         $this->_resultJsonFactory = $resultJsonFactory;
@@ -28,39 +28,61 @@ class Load extends  Action
         $this->_customerSession = $customerSession;
         parent::__construct($context);
     }
+
     public function execute()
     {
-        // TODO: Implement execute() method.
+
         if(!$this->_customerSession->isLoggedIn()) return false;
         $postData = (array) $this->getRequest()->getPostValue();
         $page = 1;
+        $expand = 0;
         if(isset($postData['page']))
         {
             $page = $postData['page'];
         }
 
-        $user_id = $this->_customerSession->getCustomer()->getId();
-        $jsonResultResponse = $this->_resultJsonFactory->create();
+        if(isset($postData['expand']))
+        {
+            $expand = $postData['expand'];
+        }
 
-        $comments = $this->_notificationCollectionFactory
+        $user_id = $this->_customerSession->getCustomer()->getId();
+
+        $jsonResultResponse = $this->_resultJsonFactory->create();
+        
+        $totalUnreadNotifications = $this->_notificationCollectionFactory
             ->create()
             ->addFieldToFilter('is_viewed', 0)
             ->addFieldToFilter('user_id', $user_id)
             ->toArray();
-        $commentsTotal = $this->_notificationCollectionFactory
+
+        $notifications = $this->_notificationCollectionFactory
             ->create()
             ->addFieldToFilter('user_id', $user_id)
             ->setPageSize(5)
             ->setCurPage($page)
             ->addOrder(
                 NotificationInterface::CREATION_TIME,
-                CommentCollection::SORT_ORDER_DESC
-            )->toArray();
+                NotificationCollection::SORT_ORDER_DESC
+            );
+        $totalRecords = $notifications->toArray()['totalRecords'];
+        $unreadNotification = count($totalUnreadNotifications['items']);
+        if($totalRecords==0) return false;
+        if(ceil($totalRecords/5)<$page) return $jsonResultResponse->setData('end');;
+        $returnData = $notifications->toArray();
+        $returnData['unreadRecords'] = $unreadNotification;
+        
+        $jsonResultResponse->setData($returnData);
+        foreach ($notifications as $notification) {
+            if(!$expand && $page == 1) break;
+            if(!$notification->isViewed())
+            {
+                $notification->isViewed(1);
+                $notification->save();
+                $returnData['expand'] = $expand;
+            }
+        }
 
-        if($commentsTotal['totalRecords']==0) return false;
-        if(ceil($commentsTotal['totalRecords']/5)<$page) return $jsonResultResponse->setData('end');;
-        $comments['items'] = $commentsTotal['items'];
-        $jsonResultResponse->setData($comments);
         return $jsonResultResponse;
     }
 }

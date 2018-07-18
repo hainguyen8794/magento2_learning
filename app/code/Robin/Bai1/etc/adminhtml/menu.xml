@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+<menu>
+    <add id="Robin_Bai1::banner_manager" title="Banner Manager"
+         module="Robin_Bai1"  action="banner/index/index" resource="Robin_Bai1::banner_manager"/>
+    <add id="Robin_Bai1::list_manager" title="List Manager"
+         module="Robin_Bai1"  action="banner/index/index" resource="Robin_Bai1::banner_manager" parent="Robin_Bai1::banner_manager"/>
+</menu>
+</config>

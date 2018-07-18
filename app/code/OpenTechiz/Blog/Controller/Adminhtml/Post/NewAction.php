@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 06/07/2018
- * Time: 16:57
- */
-
 namespace OpenTechiz\Blog\Controller\Adminhtml\Post;
-
-
 class NewAction extends \Magento\Backend\App\Action
 {
+    /**
+     * @var \Magento\Backend\Model\View\Result\Forward
+     */
     protected $resultForwardFactory;
     /**
      * @param \Magento\Backend\App\Action\Context $context

@@ -1,32 +1,33 @@
+
 <?php $helper = $this->helper('OpenTechiz\Blog\Helper\UserInfo'); ?>
 <form class="form" method="post" id="comment-form">
     <fieldset class="fieldset">
         <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Add new comment') ?></span></legend><br>
         <div class="note"></div>
         <?php if(!$helper->isLoggedIn()) { ?>
-            <div class="field required">
-                <label for="author" class="label">
-                    <span><?php /* @escapeNotVerified */ echo __('Name') ?></span>
-                </label>
-                <div class="control">
-                    <input type="text" id="author"
-                           name="author"
-                           class="input-text" width="50%">
-                </div>
+        <div class="field required">
+            <label for="author" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('Name') ?></span>
+            </label>
+            <div class="control">
+                <input type="text" id="author"
+                       name="author"
+                       class="input-text" width="50%">
             </div>
+        </div>
         <?php } ?>
         <?php if(!$helper->isLoggedIn()) { ?>
-            <div class="field required">
-                <label for="email" class="label">
-                    <span><?php /* @escapeNotVerified */ echo __('Email') ?></span>
-                </label>
+        <div class="field required">
+            <label for="email" class="label">
+                <span><?php /* @escapeNotVerified */ echo __('Email') ?></span>
+            </label>
 
-                <div class="control">
-                    <input type="email" id="email"
-                           name="email"
-                           class="input-text" width="50%">
-                </div>
+            <div class="control">
+                <input type="email" id="email"
+                       name="email"
+                       class="input-text" width="50%">
             </div>
+        </div>
         <?php } ?>
         <div class="field required">
             <label for="content" class="label">
@@ -35,8 +36,8 @@
 
             <div class="control">
                 <textarea id="content"
-                          name="content"
-                          class="input-text"></textarea>
+                       name="content"
+                       class="input-text"></textarea>
             </div>
         </div>
     </fieldset>
@@ -44,7 +45,7 @@
     <div class="actions-toolbar">
         <div class="primary">
             <button type="submit" class="action submit primary" title="<?php /* @escapeNotVerified */ echo __('Submit') ?>">
-                <span><?php  echo __('Submit') ?></span>
+                <span><?php /* @escapeNotVerified */ echo __('Submit') ?></span>
             </button>
         </div>
     </div>

@@ -28,6 +28,7 @@
             </argument>
         </arguments>
     </type>
+
     <preference for="OpenTechiz\Blog\Api\Data\CommentInterface" type="OpenTechiz\Blog\Model\Comment" />
     <virtualType name="CommentGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>

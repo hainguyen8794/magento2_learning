@@ -5,6 +5,7 @@ use Magento\TestFramework\ErrorLog\Logger;
 class Delete extends \Magento\Backend\App\Action
 {
     protected $_commentFactory;
+
     function __construct(
         \OpenTechiz\Blog\Model\CommentFactory $commentFactory,
         \Magento\Backend\App\Action\Context $context
@@ -13,6 +14,7 @@ class Delete extends \Magento\Backend\App\Action
         $this->_commentFactory = $commentFactory;
         parent::__construct($context);
     }
+
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('OpenTechiz_Blog::delete_comment');

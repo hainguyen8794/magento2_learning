@@ -4,8 +4,10 @@
  * See COPYING.txt for license details.
  */
 namespace OpenTechiz\Blog\Model\Post;
+
 use OpenTechiz\Blog\Model\ResourceModel\Post\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
+
 /**
  * Class DataProvider
  */
@@ -15,14 +17,17 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @var \Magento\Cms\Model\ResourceModel\Block\Collection
      */
     protected $collection;
+
     /**
      * @var DataPersistorInterface
      */
     protected $dataPersistor;
+
     /**
      * @var array
      */
     protected $loadedData;
+
     /**
      * Constructor
      *
@@ -47,6 +52,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $this->dataPersistor = $dataPersistor;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
+
     /**
      * Get data
      *
@@ -62,6 +68,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         foreach ($items as $block) {
             $this->loadedData[$block->getId()] = $block->getData();
         }
+
         $data = $this->dataPersistor->get('post');
         if (!empty($data)) {
             $block = $this->collection->getNewEmptyItem();
@@ -69,6 +76,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
             $this->loadedData[$block->getId()] = $block->getData();
             $this->dataPersistor->clear('post');
         }
+
         return $this->loadedData;
     }
 }

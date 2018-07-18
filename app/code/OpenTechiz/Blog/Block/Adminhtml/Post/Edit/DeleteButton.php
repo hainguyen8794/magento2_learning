@@ -1,6 +1,8 @@
 <?php
 namespace OpenTechiz\Blog\Block\Adminhtml\Post\Edit;
+
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
+
 /**
  * Class DeleteButton
  */
@@ -24,6 +26,7 @@ class DeleteButton extends GenericButton implements ButtonProviderInterface
         }
         return $data;
     }
+
     /**
      * @return string
      */

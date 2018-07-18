@@ -1,6 +1,8 @@
 <?php
 namespace OpenTechiz\Blog\Block\Adminhtml\Post\Edit;
+
 use Magento\Search\Controller\RegistryConstants;
+
 /**
  * Class GenericButton
  */
@@ -12,12 +14,14 @@ class GenericButton
      * @var \Magento\Framework\UrlInterface
      */
     protected $urlBuilder;
+
     /**
      * Registry
      *
      * @var \Magento\Framework\Registry
      */
     protected $registry;
+
     /**
      * Constructor
      *
@@ -31,6 +35,7 @@ class GenericButton
         $this->urlBuilder = $context->getUrlBuilder();
         $this->registry = $registry;
     }
+
     /**
      * Return the synonyms group Id.
      *
@@ -41,6 +46,7 @@ class GenericButton
         $post = $this->registry->registry('post');
         return $post ? $post->getId() : null;
     }
+
     /**
      * Generate url by route and parameters
      *

@@ -1,17 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hainh
- * Date: 11/07/2018
- * Time: 17:38
- */
-
 namespace OpenTechiz\Blog\Controller\Adminhtml\Comment;
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
 class Save extends \Magento\Backend\App\Action
 {
     protected $_commentFactory;
+
     protected $_backendSession;
 
     public function __construct(
@@ -24,7 +18,6 @@ class Save extends \Magento\Backend\App\Action
         $this->_backendSession = $backendSession;
         parent::__construct($context);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -32,13 +25,18 @@ class Save extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('OpenTechiz_Blog::save_comment');
     }
-
+    /**
+     * Save action
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-
+        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
+            /** @var \OpenTechiz\Blog\Model\Comment $model */
             $model = $this->_commentFactory->create();
             $id = $this->getRequest()->getParam('comment_id');
             if ($id) {
@@ -49,6 +47,7 @@ class Save extends \Magento\Backend\App\Action
                 'blog_comment_prepare_save',
                 ['comment' => $model, 'request' => $this->getRequest()]
             );
+
             try {
                 $model->save();
                 $this->messageManager->addSuccess(__('You saved this Comment.'));

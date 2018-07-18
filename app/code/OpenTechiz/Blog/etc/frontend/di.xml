@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
     <type name="Magento\Framework\App\RouterList">
     	<arguments>
@@ -10,11 +11,11 @@
     		</argument>
     	</arguments>
     </type>
-	<type name="Magento\Customer\CustomerData\SectionPoolInterface">
-		<arguments>
-			<argument name="sectionSourceMap" xsi:type="array">
-				<item name="custom_section" xsi:type="string">OpenTechiz\Blog\CustomerData\NotificateComment</item>
-			</argument>
-		</arguments>
-	</type>
+    <type name="Magento\Customer\CustomerData\SectionPoolInterface">
+        <arguments>
+            <argument name="sectionSourceMap" xsi:type="array">
+                <item name="notifications" xsi:type="string">OpenTechiz\Blog\CustomerData\LoadNotification</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

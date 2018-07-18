@@ -17,13 +17,17 @@ class PostView extends \Magento\Framework\View\Element\Template implements
         parent::__construct($context, $data);
         $this->_postFactory = $postFactory;
     }
+
     public function _prepareLayout()
     {
-        //set page title
+       //set page title
         $post = $this->getPost();
-        $this->pageConfig->getTitle()->set(__($post->getTitle()));
-        return parent::_prepareLayout();
+
+       $this->pageConfig->getTitle()->set(__($post->getTitle()));
+
+       return parent::_prepareLayout();
     }
+
     public function getPost()
     {
         if (!$this->hasData('post')) {
@@ -36,6 +40,7 @@ class PostView extends \Magento\Framework\View\Element\Template implements
         }
         return $this->getData('post');
     }
+
     public function getIdentities()
     {
         $identities = $this->getPost()->getIdentities();
@@ -44,8 +49,8 @@ class PostView extends \Magento\Framework\View\Element\Template implements
             ->addFieldToFilter('comment_id', $this->getID())
             ->addFieldToFilter('is_active', '1');
         foreach ($comments as $comment) {
-            $identities = array_merge($identities,
-                [\OpenTechiz\Blog\Model\Comment::CACHE_COMMENT_POST_TAG."_".$comment->getID()]);
+            $identities = array_merge($identities, 
+            [\OpenTechiz\Blog\Model\Comment::CACHE_COMMENT_POST_TAG."_".$comment->getID()]);
         }
         return ($identities);
     }

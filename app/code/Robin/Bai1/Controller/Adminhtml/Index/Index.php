@@ -30,6 +30,7 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->_resultPageFactory->create();
+        $resultPage->setActiveMenu('Robin_Bai1::banner_manager');
         $resultPage->getConfig()->getTitle()->prepend(__('Banner'));
         return $resultPage;
     }
