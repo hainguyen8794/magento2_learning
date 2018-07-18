@@ -33,7 +33,8 @@ class Load extends Action
     {
         if(!$this->_customerSession->isLoggedIn()) return false;
         $postData = (array) $this->getRequest()->getPostValue();
-        $post_id = $postData['post_id'];
+
+           $post_id = $postData['post_id'];
         $user_id = $this->_customerSession->getCustomer()->getId();
 
         $jsonResultResponse = $this->_resultJsonFactory->create();

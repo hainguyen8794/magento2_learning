@@ -48,7 +48,7 @@ class Save extends Action
         $error = false;
         $message = '';
         $postData = (array) $this->getRequest()->getPostValue();
-
+        var_dump($postData);
         if(!$postData)
         {
             $error = true;

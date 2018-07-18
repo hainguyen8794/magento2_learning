@@ -15,11 +15,11 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
         $installer->startSetup();
 
-        $tableName = $installer->getTable('opentechiz_blog_comment_approval_notification');
-            $installer->getConnection()->addColumn($tableName, 'is_viewed', [
+        $tableName = $installer->getTable('opentechiz_blog_comment');
+            $installer->getConnection()->addColumn($tableName, 'user_id', [
                 'type' => Table::TYPE_SMALLINT,
                 'nullable' => true,
-                'comment' => 'Comment ID?'
+                'comment' => 'User ID ?'
             ]);
 
         $installer->endSetup();
