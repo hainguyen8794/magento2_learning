@@ -12,7 +12,7 @@ use Magento\Newsletter\Test\Page\Adminhtml\TemplateNewIndex;
 use Magento\Mtf\TestCase\Injectable;
 
 /**
- * Newsletter templates Preview on Newsletter Template page
+ * Newsletter Templates Preview on Newsletter Template page
  *
  * Test Flow:
  * Preconditions:

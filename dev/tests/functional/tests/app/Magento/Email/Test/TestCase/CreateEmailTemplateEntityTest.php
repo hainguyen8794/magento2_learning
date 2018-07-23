@@ -14,7 +14,7 @@ use Magento\Mtf\TestCase\Injectable;
 /**
  * Steps:
  * 1. Log in to Admin.
- * 2. Open the Email templates page.
+ * 2. Open the Email Templates page.
  * 3. Click the "Add New Template" button.
  * 4. Select Email Template.
  * 5. Click the "Load Template" button.

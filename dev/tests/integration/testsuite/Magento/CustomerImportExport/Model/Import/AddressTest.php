@@ -119,9 +119,9 @@ class AddressTest extends \PHPUnit\Framework\TestCase
             'array',
             'errorMessageTemplates',
             $this->_entityAdapter,
-            'templates must be an array.'
+            'Templates must be an array.'
         );
-        $this->assertAttributeNotEmpty('errorMessageTemplates', $this->_entityAdapter, 'templates must not be empty');
+        $this->assertAttributeNotEmpty('errorMessageTemplates', $this->_entityAdapter, 'Templates must not be empty');
 
         // check attributes
         $this->assertAttributeInternalType(
