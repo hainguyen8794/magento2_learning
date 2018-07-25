@@ -15,11 +15,11 @@
     </argument>
     <settings>
         <buttons>
-            <button name="save_and_continue" class="Magento\Cms\Block\Adminhtml\Page\Edit\SaveAndContinueButton"/>
-            <button name="save" class="Magento\Cms\Block\Adminhtml\Page\Edit\SaveButton"/>
-            <button name="reset" class="Magento\Cms\Block\Adminhtml\Page\Edit\ResetButton"/>
-            <button name="delete" class="Magento\Cms\Block\Adminhtml\Page\Edit\DeleteButton"/>
-            <button name="back" class="Magento\Cms\Block\Adminhtml\Page\Edit\BackButton"/>
+            <button name="save_and_continue" class="Robin\Bai1\Block\Adminhtml\Banner\Edit\SaveAndContinueButton"/>
+            <button name="save" class="Robin\Bai1\Block\Adminhtml\Banner\Edit\SaveButton"/>
+            <button name="reset" class="Robin\Bai1\Block\Adminhtml\Banner\Edit\ResetButton"/>
+            <button name="delete" class="Robin\Bai1\Block\Adminhtml\Banner\Edit\DeleteButton"/>
+            <button name="back" class="Robin\Bai1\Block\Adminhtml\Banner\Edit\BackButton"/>
         </buttons>
         <namespace>banner_form</namespace>
         <dataScope>data</dataScope>
@@ -27,7 +27,7 @@
             <dep>banner_form.page_form_data_source</dep>
         </deps>
     </settings>
-    <dataSource name="page_form_data_source">
+    <dataSource name="banner_form_data_source">
         <argument name="data" xsi:type="array">
             <item name="js_config" xsi:type="array">
                 <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>

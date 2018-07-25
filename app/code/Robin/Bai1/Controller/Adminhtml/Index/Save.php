@@ -7,7 +7,7 @@
 namespace Robin\Bai1\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
-use Robin\Bai1\Model\Banner;
+use Magento\Cms\Model\Page;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Framework\Exception\LocalizedException;
 
@@ -18,7 +18,7 @@ class Save extends Action
      *
      * @see _isAllowed()
      */
-    const ADMIN_RESOURCE = 'Robin_Bai1::save';
+    const ADMIN_RESOURCE = 'Magento_Cms::save';
 
     /**
      * @var PostDataProcessor
@@ -72,25 +72,22 @@ class Save extends Action
      */
     public function execute()
     {
-
         $data = $this->getRequest()->getPostValue();
-
-
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
-
-            if (isset($data['status']) && $data['status'] === 'true') {
-                $data['status'] = Banner::STATUS_ENABLED;
+            $data = $this->dataProcessor->filter($data);
+            if (isset($data['is_active']) && $data['is_active'] === 'true') {
+                $data['is_active'] = Page::STATUS_ENABLED;
             }
-            if (empty($data['id'])) {
-                $data['id'] = null;
+            if (empty($data['page_id'])) {
+                $data['page_id'] = null;
             }
 
-            /** @var \Magento\Cms\Model\Banner $model */
+            /** @var \Magento\Cms\Model\Page $model */
             $model = $this->pageFactory->create();
 
-            $id = $this->getRequest()->getParam('id');
+            $id = $this->getRequest()->getParam('page_id');
             if ($id) {
                 try {
                     $model = $this->pageRepository->getById($id);
@@ -102,30 +99,32 @@ class Save extends Action
 
             $model->setData($data);
 
+            $this->_eventManager->dispatch(
+                'cms_page_prepare_save',
+                ['page' => $model, 'request' => $this->getRequest()]
+            );
 
-
-            if (!$this->dataProcessor->validateRequireEntry($data)) {
-                return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
+            if (!$this->dataProcessor->validate($data)) {
+                return $resultRedirect->setPath('*/*/edit', ['page_id' => $model->getId(), '_current' => true]);
             }
 
             try {
                 $this->pageRepository->save($model);
-                $this->messageManager->addSuccessMessage(__('You saved the image .'));
-                $this->dataPersistor->clear('banner');
+                $this->messageManager->addSuccessMessage(__('You saved the page.'));
+                $this->dataPersistor->clear('cms_page');
                 if ($this->getRequest()->getParam('back')) {
-                    return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
+                    return $resultRedirect->setPath('*/*/edit', ['page_id' => $model->getId(), '_current' => true]);
                 }
                 return $resultRedirect->setPath('*/*/');
             } catch (LocalizedException $e) {
                 $this->messageManager->addExceptionMessage($e->getPrevious() ?:$e);
             } catch (\Exception $e) {
-                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the image.'));
+                $this->messageManager->addExceptionMessage($e, __('Something went wrong while saving the page.'));
             }
 
-            $this->dataPersistor->set('banner',  $data);
-            return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
+            $this->dataPersistor->set('cms_page', $data);
+            return $resultRedirect->setPath('*/*/edit', ['page_id' => $this->getRequest()->getParam('page_id')]);
         }
-
         return $resultRedirect->setPath('*/*/');
     }
 }
