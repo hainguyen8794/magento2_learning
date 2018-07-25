@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Robin\Bai1\Model\Page;
+namespace Robin\Bai1\Model\Banner;
 
 use Robin\Bai1\Model\ResourceModel\Banner\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;

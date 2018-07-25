@@ -22,7 +22,7 @@ class GenericButton
     /**
      * @var PageRepositoryInterface
      */
-    protected $pageRepository;
+    protected $bannerRepository;
 
     /**
      * @param Context $context

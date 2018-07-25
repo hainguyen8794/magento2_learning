@@ -8,7 +8,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 {
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-      $setup->startSetup();
+   /*   $setup->startSetup();
       $connection = $setup->getConnection();
       $tableName = $setup->getTable("banner");
       if($connection->isTableExists($tableName) != true){
@@ -22,6 +22,7 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
         $connection->createTable($table);
     }
 
-      $setup->endSetup();
+      $setup->endSetup();*/
+
     }
 }
