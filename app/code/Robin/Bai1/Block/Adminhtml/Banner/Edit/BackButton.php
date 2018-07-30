@@ -3,7 +3,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Robin\Banner\Block\Adminhtml\Banner\Edit;
+namespace Robin\Bai1\Block\Adminhtml\Banner\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 

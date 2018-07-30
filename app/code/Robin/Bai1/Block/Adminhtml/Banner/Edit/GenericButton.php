@@ -3,10 +3,10 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-namespace Robin\Banner\Block\Adminhtml\Banner\Edit;
+namespace Robin\Bai1\Block\Adminhtml\Banner\Edit;
 
 use Magento\Backend\Block\Widget\Context;
-use Robin\Banner\Api\PageRepositoryInterface;
+use Magento\Cms\Api\PageRepositoryInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 
 /**

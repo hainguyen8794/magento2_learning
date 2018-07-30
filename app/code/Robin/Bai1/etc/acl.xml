@@ -9,7 +9,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Robin_bai1::banner_manager" title="Banner Manager" translate="title" sortOrder="10" >
+                <resource id="Robin_Bai1::banner_manager" title="Banner Manager" translate="title" sortOrder="10" >
                             <resource id="Robin_Bai1::save" title="Save Image" translate="title" sortOrder="10" />
                             <resource id="Robin_Bai1::delete" title="Delete Image" translate="title" sortOrder="20" />
                 </resource>
