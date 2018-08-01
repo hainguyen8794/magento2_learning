@@ -15,7 +15,7 @@ use Magento\Catalog\Model\Product\Visibility;
 use Magento\Catalog\Model\ProductFactory;
 
 /**
- * Bundle product template generator. Return newly created bundle product for specified attribute set
+ * Bundle product templates generator. Return newly created bundle product for specified attribute set
  * with default values for product attributes
  */
 class BundleProductTemplateGenerator implements TemplateEntityGeneratorInterface
@@ -72,7 +72,7 @@ class BundleProductTemplateGenerator implements TemplateEntityGeneratorInterface
     }
 
     /**
-     * Get product template
+     * Get product templates
      *
      * @param int $attributeSet
      * @return ProductInterface
@@ -87,8 +87,8 @@ class BundleProductTemplateGenerator implements TemplateEntityGeneratorInterface
             'data' => [
                 'attribute_set_id' => $attributeSet,
                 'type_id' => Type::TYPE_BUNDLE,
-                'name' => 'template name' . $productRandomizerNumber,
-                'url_key' => 'template-url' . $productRandomizerNumber,
+                'name' => 'templates name' . $productRandomizerNumber,
+                'url_key' => 'templates-url' . $productRandomizerNumber,
                 'sku' => 'template_sku' . $productRandomizerNumber,
                 'price' => 10,
                 'visibility' => Visibility::VISIBILITY_BOTH,

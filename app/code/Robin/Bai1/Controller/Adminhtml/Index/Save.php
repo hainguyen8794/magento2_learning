@@ -52,6 +52,9 @@ class Save extends Action
             if (empty($data['id'])) {
                 $data['id'] = null;
             }
+            if (empty($data['images'])) {
+                $data['images'] = null;
+            }
             // Init model and load by ID if exists
             /*  $model = $this->_objectManager->create('Hainh\Banner\Model\Banner');*/
             $model = $this->bannerFactory->create();
@@ -64,6 +67,8 @@ class Save extends Action
                 // Redirect to Edit page if has error
                 return $resultRedirect->setPath('*/*/edit', ['id' => $model->getId(), '_current' => true]);
             }
+            $data['image']= $data['images'][0]['name'];
+
             // Update model
             $model->setData($data);
             // Save data to database

@@ -39,7 +39,7 @@ class ParametersForm extends Form
     protected $pathToGrid = '';
 
     /**
-     * Selector for template block.
+     * Selector for templates block.
      *
      * @var string
      */
@@ -109,7 +109,7 @@ class ParametersForm extends Form
     }
 
     /**
-     * Get template block.
+     * Get templates block.
      *
      * @return Template
      */

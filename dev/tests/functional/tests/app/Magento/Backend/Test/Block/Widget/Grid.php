@@ -140,14 +140,14 @@ abstract class Grid extends Block
     protected $active = '[class=*_active]';
 
     /**
-     * Secondary part of row locator template for getRow() method
+     * Secondary part of row locator templates for getRow() method
      *
      * @var string
      */
     protected $rowTemplate = 'td[contains(.,normalize-space("%s"))]';
 
     /**
-     * Secondary part of row locator template for getRow() method with strict option
+     * Secondary part of row locator templates for getRow() method with strict option
      *
      * @var string
      */
@@ -189,7 +189,7 @@ abstract class Grid extends Block
     protected $noRecords = '.empty-text';
 
     /**
-     * Base part of row locator template for getRow() method.
+     * Base part of row locator templates for getRow() method.
      *
      * @var string
      */

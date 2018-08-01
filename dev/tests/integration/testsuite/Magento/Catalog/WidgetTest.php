@@ -16,7 +16,7 @@ class WidgetTest extends \PHPUnit\Framework\TestCase
             \Magento\Widget\Model\Widget\Instance::class
         );
         $config = $model->setType($type)->getWidgetConfigAsArray();
-        $templates = $config['parameters']['template']['values'];
+        $templates = $config['parameters']['templates']['values'];
         $this->assertArrayHasKey('default', $templates);
         $this->assertArrayHasKey('list', $templates);
         $this->assertArrayHasKey('list_default', $templates);

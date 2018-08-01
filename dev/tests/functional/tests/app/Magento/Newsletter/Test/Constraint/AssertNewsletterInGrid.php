@@ -22,7 +22,7 @@ class AssertNewsletterInGrid extends AbstractConstraint
     /* end tags */
 
     /**
-     *  Assert that newsletter template is present in grid
+     *  Assert that newsletter templates is present in grid
      *
      * @param TemplateIndex $templateIndex
      * @param Template $template
@@ -36,17 +36,17 @@ class AssertNewsletterInGrid extends AbstractConstraint
         $filter = ['code' => $template->getCode()];
         \PHPUnit_Framework_Assert::assertTrue(
             $templateIndex->getNewsletterTemplateGrid()->isRowVisible($filter),
-            'Newsletter \'' . $template->getCode() . '\'is absent in newsletter template grid.'
+            'Newsletter \'' . $template->getCode() . '\'is absent in newsletter templates grid.'
         );
     }
 
     /**
-     * Success assert of newsletter template in grid.
+     * Success assert of newsletter templates in grid.
      *
      * @return string
      */
     public function toString()
     {
-        return 'Newsletter template is present in grid.';
+        return 'Newsletter templates is present in grid.';
     }
 }

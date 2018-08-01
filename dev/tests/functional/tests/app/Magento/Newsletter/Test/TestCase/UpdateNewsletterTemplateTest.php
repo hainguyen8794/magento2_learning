@@ -17,7 +17,7 @@ use Magento\Mtf\TestCase\Injectable;
  * Test Flow:
  *
  * Preconditions:
- * 1. Create newsletter template
+ * 1. Create newsletter templates
  *
  * Steps:
  * 1. Login to backend.
@@ -37,14 +37,14 @@ class UpdateNewsletterTemplateTest extends Injectable
     /* end tags */
 
     /**
-     * Newsletter template index page
+     * Newsletter templates index page
      *
      * @var TemplateIndex
      */
     protected $templateIndex;
 
     /**
-     * Newsletter template edit page
+     * Newsletter templates edit page
      *
      * @var TemplateEdit
      */

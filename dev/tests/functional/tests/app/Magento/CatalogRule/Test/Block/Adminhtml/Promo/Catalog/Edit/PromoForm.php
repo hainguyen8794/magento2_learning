@@ -18,7 +18,7 @@ use Magento\Ui\Test\Block\Adminhtml\FormSections;
 class PromoForm extends FormSections
 {
     /**
-     * Selector for template block.
+     * Selector for templates block.
      *
      * @var string
      */
@@ -78,7 +78,7 @@ class PromoForm extends FormSections
     }
 
     /**
-     * Get template block.
+     * Get templates block.
      *
      * @return Template
      */

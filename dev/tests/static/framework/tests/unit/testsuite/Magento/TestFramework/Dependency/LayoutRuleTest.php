@@ -52,17 +52,17 @@ class LayoutRuleTest extends \PHPUnit\Framework\TestCase
             ['<block class="Magento\SomeModule\Several\Chunks"/>', []],
             [
                 '<any>
-                    <extra></extra><block template="Magento_AnotherModule::template/path.phtml"/>
+                    <extra></extra><block templates="Magento_AnotherModule::templates/path.phtml"/>
                 </any>',
                 [
                     [
                         'module' => 'Magento\AnotherModule',
                         'type' => \Magento\Test\Integrity\DependencyTest::TYPE_SOFT,
-                        'source' => '<block template="Magento_AnotherModule::template/path.phtml"/>',
+                        'source' => '<block templates="Magento_AnotherModule::templates/path.phtml"/>',
                     ]
                 ]
             ],
-            ['<block template="Magento_SomeModule::template/path.phtml"/>', []],
+            ['<block templates="Magento_SomeModule::templates/path.phtml"/>', []],
             [
                 '<block>Magento\AnotherModule\Several\Chunks</block>',
                 [
@@ -75,16 +75,16 @@ class LayoutRuleTest extends \PHPUnit\Framework\TestCase
             ],
             ['<block>Magento\SomeModule\Several\Chunks</block>', []],
             [
-                '<template>Magento_AnotherModule::template/path.phtml</template>',
+                '<templates>Magento_AnotherModule::templates/path.phtml</templates>',
                 [
                     [
                         'module' => 'Magento\AnotherModule',
                         'type' => \Magento\Test\Integrity\DependencyTest::TYPE_SOFT,
-                        'source' => '<template>Magento_AnotherModule::template/path.phtml</template>',
+                        'source' => '<templates>Magento_AnotherModule::templates/path.phtml</templates>',
                     ]
                 ]
             ],
-            ['<template>Magento_SomeModule::template/path.phtml</template>', []],
+            ['<templates>Magento_SomeModule::templates/path.phtml</templates>', []],
             [
                 '<file>Magento_AnotherModule::file/path.txt</file>',
                 [

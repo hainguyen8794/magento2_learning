@@ -28,7 +28,7 @@ class FormPageActions extends AbstractFormPageActions
      *
      * @var string
      */
-    private $previewButton = "[data-role='template-preview']";
+    private $previewButton = "[data-role='templates-preview']";
 
     /**
      * Click preview button on form page

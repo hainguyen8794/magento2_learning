@@ -17,7 +17,7 @@ use Magento\Mtf\TestCase\Injectable;
  *
  * Preconditions:
  * 1. An attribute is created
- * 2. An attribute template is created
+ * 2. An attribute templates is created
  *
  * Test Flow:
  * 1. Log in to Backend.

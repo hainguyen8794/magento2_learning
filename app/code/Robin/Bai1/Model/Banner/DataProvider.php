@@ -5,6 +5,8 @@
  */
 namespace Robin\Bai1\Model\Banner;
 
+use Magento\Backend\Model\UrlInterface;
+use Magento\Store\Model\StoreManagerInterface;
 use Robin\Bai1\Model\ResourceModel\Banner\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
 
@@ -27,6 +29,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @var array
      */
     protected $loadedData;
+    protected $storeManager;
 
     /**
      * @param string $name
@@ -43,11 +46,13 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $requestFieldName,
         CollectionFactory $bannerCollectionFactory,
         DataPersistorInterface $dataPersistor,
+        StoreManagerInterface $storeManager,
         array $meta = [],
         array $data = []
     ) {
         $this->collection = $bannerCollectionFactory->create();
         $this->dataPersistor = $dataPersistor;
+        $this->storeManager= $storeManager;
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->meta = $this->prepareMeta($this->meta);
     }
@@ -76,6 +81,10 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $items = $this->collection->getItems();
         /** @var $banner \Robin\Bai1\Model\Page */
         foreach ($items as $banner) {
+            $data = $banner->getData();
+            $image = $data['image'];
+            $data['images'][0]['url'] =$this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA) . 'banner/images/' .$image;
+            $data['images'][0]['name'] = $image;
             $this->loadedData[$banner->getId()] = $banner->getData();
         }
 

@@ -107,7 +107,7 @@ class CaseInfoTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Creates template context with necessary order id param.
+     * Creates templates context with necessary order id param.
      *
      * @return Context
      */

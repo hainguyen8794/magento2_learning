@@ -16,4 +16,13 @@ class Banner extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
        $this->_init('banner','id');
    }
 
+   protected function _afterSave(\Magento\Framework\Model\AbstractModel $object)
+   {
+     $image = $object->getData('image');
+     if($image != null){
+         $imageUpload = \Magento\Framework\App\ObjectManager::getInstance()->get('Robin\Bai1\BannerImageUpload');
+         $imageUpload->moveFileFromTmp($image);
+     }
+     return $this;
+   }
 }

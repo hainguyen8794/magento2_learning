@@ -1,6 +1,6 @@
 <?php
 /**
- * List of blocks to be skipped from template files test
+ * List of blocks to be skipped from templates files test
  *
  * Format: array('Block_Class_Name', ...)
  *

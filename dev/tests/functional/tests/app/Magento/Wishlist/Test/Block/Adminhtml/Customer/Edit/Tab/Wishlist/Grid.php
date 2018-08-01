@@ -51,7 +51,7 @@ class Grid extends \Magento\Backend\Test\Block\Widget\Grid
     protected $configureLink = 'a[onclick*="configureItem"]';
 
     /**
-     * Secondary part of row locator template for getRow() method with strict option.
+     * Secondary part of row locator templates for getRow() method with strict option.
      *
      * @var string
      */

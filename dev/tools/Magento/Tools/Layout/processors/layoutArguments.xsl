@@ -84,7 +84,7 @@
                     </xsl:choose>
                 </xsl:attribute>
                 <xsl:apply-templates select="node()|@*[name()!='type' and name()!='helper']"/>
-                <!--<xsl:call-template name="helper"/>-->
+                <!--<xsl:call-templates name="helper"/>-->
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
@@ -106,11 +106,11 @@
 
     <xsl:template name="array">
         <xsl:attribute name="xsi:type">array</xsl:attribute>
-        <!--<xsl:call-template name="helper"/>-->
+        <!--<xsl:call-templates name="helper"/>-->
         <xsl:for-each select="child::*">
             <xsl:choose>
                 <xsl:when test="name()='updater'">
-                    <!--<xsl:call-template name="updater"/>-->
+                    <!--<xsl:call-templates name="updater"/>-->
                     <xsl:copy>
                         <xsl:apply-templates select="node()|@*"/>
                     </xsl:copy>

@@ -13,7 +13,7 @@ use Magento\Mtf\Constraint\AbstractConstraint;
  */
 class AssertEmailTemplateSuccessSaveMessage extends AbstractConstraint
 {
-    const SUCCESS_MESSAGE = 'You saved the email template.';
+    const SUCCESS_MESSAGE = 'You saved the email templates.';
 
     /**
      * @param EmailTemplateIndex $emailTemplateIndex

@@ -1,0 +1,19 @@
+<?php
+$data = $this->getData('banners');
+$mediaUrl = $this->getData('mediaURL');
+$auto = $this->getData('speed');
+?>
+<ul>
+    <?php
+    foreach ($data as $dat) {
+        ?>
+        <li><a href="<?php echo $dat['link'] ; ?>">
+                <img src="<?php  echo $mediaUrl.$dat['image'] ; ?>">
+            </a>
+
+        </li>
+        <?php
+    }
+    ?>
+</ul>
+

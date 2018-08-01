@@ -19,11 +19,26 @@ class UpgradeSchema implements UpgradeSchemaInterface
             'nullable' => true,
             'comment' => 'Sort order banner ?'
         ]);*/
-        $installer->getConnection()->addColumn($tableName, 'status', [
+        $installer->getConnection()->addColumn($tableName, 'sort_order', [
             'type' => Table::TYPE_SMALLINT,
             'nullable' => true,
-            'comment' => 'Status  banner ?'
+            'comment' =>'Sort order banner ?'
         ]);
         $installer->endSetup();
+       /* $setup->startSetup();
+        $connection = $setup->getConnection();
+        $tableName = $setup->getTable('banner');
+        $connection->addIndex(
+            $tableName,
+            'search',
+            [
+                'image',
+                'link'
+            ],
+            \Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
+        );
+        $setup->endSetup();*/
     }
+
+
 }

@@ -44,7 +44,7 @@ class OverviewTest extends \PHPUnit\Framework\TestCase
             'renderer.list'
         )->addChild(
             'default', \Magento\Checkout\Block\Cart\Item\Renderer::class,
-            ['template' => 'cart/item/default.phtml']
+            ['templates' => 'cart/item/default.phtml']
         );
     }
 

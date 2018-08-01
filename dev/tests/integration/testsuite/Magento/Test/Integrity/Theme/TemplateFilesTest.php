@@ -71,15 +71,15 @@ class TemplateFilesTest extends \Magento\TestFramework\TestCase\AbstractIntegrit
         $blocks = $layoutXml->xpath('//block');
         foreach ($blocks as $block) {
             $attributes = $block->attributes();
-            if (isset($attributes['template'])) {
+            if (isset($attributes['templates'])) {
                 $module = $this->_getBlockModule($block);
-                if (!$this->_isTemplateForDisabledModule($module, (string)$attributes['template'])) {
-                    $templates[] = [$module, (string)$attributes['template'], $block->asXML()];
+                if (!$this->_isTemplateForDisabledModule($module, (string)$attributes['templates'])) {
+                    $templates[] = [$module, (string)$attributes['templates'], $block->asXML()];
                 }
             }
         }
 
-        $layoutTemplates = $layoutXml->xpath('//template');
+        $layoutTemplates = $layoutXml->xpath('//templates');
         foreach ($layoutTemplates as $template) {
             $action = $template->xpath("parent::*");
             $attributes = $action[0]->attributes();
@@ -130,9 +130,9 @@ class TemplateFilesTest extends \Magento\TestFramework\TestCase\AbstractIntegrit
     }
 
     /**
-     * Returns whether template belongs to a disabled module
+     * Returns whether templates belongs to a disabled module
      *
-     * @param string $blockModule Module of a block that will render this template
+     * @param string $blockModule Module of a block that will render this templates
      * @param string $template
      * @return bool
      */

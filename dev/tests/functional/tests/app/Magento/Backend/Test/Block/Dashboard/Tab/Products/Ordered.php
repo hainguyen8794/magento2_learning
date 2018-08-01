@@ -16,14 +16,14 @@ use Magento\Catalog\Test\Fixture\CatalogProductSimple;
 class Ordered extends Grid
 {
     /**
-     * Base part of row locator template
+     * Base part of row locator templates
      *
      * @var string
      */
     protected $location = '//table[@id="productsOrderedGrid_table"]/tbody/tr';
 
     /**
-     * Secondary part of row locator template
+     * Secondary part of row locator templates
      *
      * @var string
      */

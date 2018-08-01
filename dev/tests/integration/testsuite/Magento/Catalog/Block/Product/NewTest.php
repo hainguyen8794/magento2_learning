@@ -75,10 +75,10 @@ class NewTest extends \PHPUnit\Framework\TestCase
             $info[3]
         );
 
-        $this->assertSame('template', array_shift($keys));
+        $this->assertSame('templates', array_shift($keys));
 
         /**
-         * This block is implemented without template by default (invalid).
+         * This block is implemented without templates by default (invalid).
          * Having the cache key fragment with empty value can potentially lead to caching bugs
          */
         $this->assertSame(4, array_shift($keys));

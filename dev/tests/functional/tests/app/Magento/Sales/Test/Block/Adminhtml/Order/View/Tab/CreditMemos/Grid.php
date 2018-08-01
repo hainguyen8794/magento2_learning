@@ -15,7 +15,7 @@ use Magento\Ui\Test\Block\Adminhtml\DataGrid;
 class Grid extends DataGrid
 {
     /**
-     * Base part of row locator template for getRow() method.
+     * Base part of row locator templates for getRow() method.
      *
      * @var string
      */

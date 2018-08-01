@@ -8,7 +8,7 @@ namespace Magento\ImportExport\Mtf\Util\Import\File;
 use Magento\Mtf\Util\Generate\File\TemplateInterface;
 
 /**
- * CSV file template.
+ * CSV file templates.
  */
 class CsvTemplate implements TemplateInterface
 {

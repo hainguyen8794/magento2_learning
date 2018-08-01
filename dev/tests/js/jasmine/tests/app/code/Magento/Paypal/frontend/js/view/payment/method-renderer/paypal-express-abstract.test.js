@@ -37,7 +37,7 @@ define([
                 }
             },
             paypalExpressAbstract,
-            tplElement = $('<div data-bind="with: child"><div data-bind="template: getTemplate()"></div></div>')[0];
+            tplElement = $('<div data-bind="with: child"><div data-bind="templates: getTemplate()"></div></div>')[0];
 
         /**
          * Click on PayPal help link and call expectation

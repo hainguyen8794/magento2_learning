@@ -15,7 +15,7 @@ use Magento\Mtf\Constraint\AbstractConstraint;
 class AssertShippingMethodOnPrintOrder extends AbstractConstraint
 {
     /**
-     * Shipping method and carrier template.
+     * Shipping method and carrier templates.
      */
     const SHIPPING_TEMPLATE = "%s - %s";
 

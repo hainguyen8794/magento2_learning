@@ -257,7 +257,7 @@ class FallbackTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test for the email template files fallback according to the themes inheritance
+     * Test for the email templates files fallback according to the themes inheritance
      *
      * @magentoDataFixture Magento/Store/_files/core_fixturestore.php
      * @magentoComponentsDir Magento/Email/Model/_files/design

@@ -53,12 +53,12 @@ class TemplateFilesTest extends \PHPUnit\Framework\TestCase
                 if (isset(
                     $config['parameters']
                 ) && isset(
-                    $config['parameters']['template']
+                    $config['parameters']['templates']
                 ) && isset(
-                    $config['parameters']['template']['values']
+                    $config['parameters']['templates']['values']
                 )
                 ) {
-                    $templates = $config['parameters']['template']['values'];
+                    $templates = $config['parameters']['templates']['values'];
                     foreach ($templates as $template) {
                         if (isset($template['value'])) {
                             $result[] = [$class, (string)$template['value']];

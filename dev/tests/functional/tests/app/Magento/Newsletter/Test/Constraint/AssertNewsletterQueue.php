@@ -12,7 +12,7 @@ use Magento\Mtf\Constraint\AbstractAssertForm;
 
 /**
  * Class AssertNewsletterQueue
- * Assert that "Edit Queue" page opened and subject, sender name, sender email and template content correct
+ * Assert that "Edit Queue" page opened and subject, sender name, sender email and templates content correct
  */
 class AssertNewsletterQueue extends AbstractAssertForm
 {
@@ -24,7 +24,7 @@ class AssertNewsletterQueue extends AbstractAssertForm
     protected $skippedFields = ['code'];
 
     /**
-     * Assert that "Edit Queue" page opened and subject, sender name, sender email and template content correct
+     * Assert that "Edit Queue" page opened and subject, sender name, sender email and templates content correct
      *
      * @param TemplateQueue $templateQueue
      * @param Template $newsletter

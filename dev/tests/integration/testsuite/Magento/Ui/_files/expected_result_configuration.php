@@ -29,8 +29,8 @@ return ['arguments' => [
                 'xsi:type' => 'string',
                 'value' => 'mui/index/render',
             ],
-            'template' => [
-                'name' => 'template',
+            'templates' => [
+                'name' => 'templates',
                 'xsi:type' => 'string',
                 'value' => 'templates/listing/default',
             ],
@@ -155,8 +155,8 @@ return ['arguments' => [
                                     'xsi:type' => 'string',
                                     'value' => 'Magento_Test/js/grid/listing',
                                 ],
-                                'template' => [
-                                    'name' => 'template',
+                                'templates' => [
+                                    'name' => 'templates',
                                     'xsi:type' => 'string',
                                     'value' => 'Magento_Test/grid/listing',
                                 ],
@@ -190,7 +190,7 @@ return ['arguments' => [
             'attributes' => [
                 'name' => 'columns',
                 'component' => 'Magento_Test/js/grid/listing',
-                'template' => 'Magento_Test/grid/listing',
+                'templates' => 'Magento_Test/grid/listing',
             ],
             'children' => [
                 'created_at' => [

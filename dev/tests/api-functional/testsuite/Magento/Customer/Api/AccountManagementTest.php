@@ -374,7 +374,7 @@ class AccountManagementTest extends WebapiAbstract
                     [
                         'message' => '%fieldName is a required field.',
                         'parameters' => [
-                            'fieldName' => 'template',
+                            'fieldName' => 'templates',
                         ]
                     ],
                 ],
@@ -400,7 +400,7 @@ class AccountManagementTest extends WebapiAbstract
         ];
         $requestData = [
             'email' => $customerData[Customer::EMAIL],
-            'template' => AccountManagement::EMAIL_RESET,
+            'templates' => AccountManagement::EMAIL_RESET,
             'websiteId' => $customerData[Customer::WEBSITE_ID],
         ];
         // This api doesn't return any response.
@@ -424,7 +424,7 @@ class AccountManagementTest extends WebapiAbstract
         ];
         $requestData = [
             'email' => 'dummy@example.com',
-            'template' => AccountManagement::EMAIL_RESET,
+            'templates' => AccountManagement::EMAIL_RESET,
             'websiteId' => 0,
         ];
         try {

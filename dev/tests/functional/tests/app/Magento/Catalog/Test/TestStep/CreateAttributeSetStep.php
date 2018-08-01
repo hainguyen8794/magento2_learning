@@ -10,7 +10,7 @@ use Magento\Catalog\Test\Fixture\CatalogAttributeSet;
 use Magento\Mtf\TestStep\TestStepInterface;
 
 /**
- * Create product attribute template using handler.
+ * Create product attribute templates using handler.
  */
 class CreateAttributeSetStep implements TestStepInterface
 {
@@ -33,7 +33,7 @@ class CreateAttributeSetStep implements TestStepInterface
     }
 
     /**
-     * Create product attribute template.
+     * Create product attribute templates.
      *
      * @return array
      */

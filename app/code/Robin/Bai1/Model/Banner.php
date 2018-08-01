@@ -37,4 +37,8 @@ class Banner extends \Magento\Framework\Model\AbstractModel implements BannerInt
  {
      $this->setData(self::LINK,$link);
  }
+    public function getAvailableStatuses()
+    {
+        return [self::STATUS_ENABLE => __('Enabled'), self::STATUS_DISABLE => __('Disabled')];
+    }
 }

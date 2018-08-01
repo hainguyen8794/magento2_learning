@@ -13,7 +13,7 @@ use Magento\Catalog\Model\Product\Visibility;
 use Magento\Catalog\Model\ProductFactory;
 
 /**
- * Simple product template generator. Return newly created simple product for specified attribute set
+ * Simple product templates generator. Return newly created simple product for specified attribute set
  * with default values for product attributes
  */
 class SimpleProductTemplateGenerator implements TemplateEntityGeneratorInterface
@@ -54,7 +54,7 @@ class SimpleProductTemplateGenerator implements TemplateEntityGeneratorInterface
     }
 
     /**
-     * Get product template
+     * Get product templates
      *
      * @param int $attributeSet
      * @param array $additionalAttributes
@@ -67,8 +67,8 @@ class SimpleProductTemplateGenerator implements TemplateEntityGeneratorInterface
             'data' => [
                 'attribute_set_id' => $attributeSet,
                 'type_id' => Type::TYPE_SIMPLE,
-                'name' => 'template name' . $productRandomizerNumber,
-                'url_key' => 'template-url' . $productRandomizerNumber,
+                'name' => 'templates name' . $productRandomizerNumber,
+                'url_key' => 'templates-url' . $productRandomizerNumber,
                 'sku' => 'template_sku' . $productRandomizerNumber,
                 'price' => 10,
                 'visibility' => Visibility::VISIBILITY_BOTH,

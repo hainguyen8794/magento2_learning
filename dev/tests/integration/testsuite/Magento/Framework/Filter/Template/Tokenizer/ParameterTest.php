@@ -46,22 +46,22 @@ class ParameterTest extends \PHPUnit\Framework\TestCase
         return [
             [
                 ' type="Magento\\Catalog\\Block\\Product\\Widget\\NewWidget" display_type="all_products"'
-                . ' products_count="10" template="product/widget/new/content/new_grid.phtml"',
+                . ' products_count="10" templates="product/widget/new/content/new_grid.phtml"',
                 [
                     'type' => \Magento\Catalog\Block\Product\Widget\NewWidget::class,
                     'display_type' => 'all_products',
                     'products_count' => 10,
-                    'template' => 'product/widget/new/content/new_grid.phtml'
+                    'templates' => 'product/widget/new/content/new_grid.phtml'
                 ],
             ],
             [
                 ' type="Magento\Catalog\Block\Product\Widget\NewWidget" display_type="all_products"'
-                . ' products_count="10" template="product/widget/new/content/new_grid.phtml"',
+                . ' products_count="10" templates="product/widget/new/content/new_grid.phtml"',
                 [
                     'type' => \Magento\Catalog\Block\Product\Widget\NewWidget::class,
                     'display_type' => 'all_products',
                     'products_count' => 10,
-                    'template' => 'product/widget/new/content/new_grid.phtml'
+                    'templates' => 'product/widget/new/content/new_grid.phtml'
                 ]
             ]
         ];
@@ -75,7 +75,7 @@ class ParameterTest extends \PHPUnit\Framework\TestCase
         return [
             [
                 ' type="Magento\\Catalog\\Block\\Product\\Widget\\NewWidget" display_type="all_products"'
-                . ' products_count="10" template="product/widget/new/content/new_grid.phtml"',
+                . ' products_count="10" templates="product/widget/new/content/new_grid.phtml"',
                 [
                     'type="Magento\Catalog\Block\Product\Widget\NewWidget"',
                     'display_type="all_products"',
@@ -84,7 +84,7 @@ class ParameterTest extends \PHPUnit\Framework\TestCase
             ],
             [
                 ' type="Magento\Catalog\Block\Product\Widget\NewWidget" display_type="all_products"'
-                . ' products_count="10" template="product/widget/new/content/new_grid.phtml"',
+                . ' products_count="10" templates="product/widget/new/content/new_grid.phtml"',
                 [
                     'type="Magento\Catalog\Block\Product\Widget\NewWidget"',
                     'display_type="all_products"',

@@ -64,7 +64,7 @@ class Reader implements ReaderInterface
     }
 
     /**
-     * Get files by template from the Magento.
+     * Get files by templates from the Magento.
      *
      * @return array
      */
@@ -84,6 +84,6 @@ class Reader implements ReaderInterface
      */
     private function prepareUrl()
     {
-        return $_ENV['app_frontend_url'] . self::URL . '?template=' . urlencode($this->template);
+        return $_ENV['app_frontend_url'] . self::URL . '?templates=' . urlencode($this->template);
     }
 }

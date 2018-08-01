@@ -52,7 +52,7 @@ class UpsellTest extends \PHPUnit\Framework\TestCase
         )->addChild(
             'compare',
             \Magento\Catalog\Block\Product\ProductList\Item\AddTo\Compare::class,
-            ['template' => 'Magento_Catalog::product/list/addto/compare.phtml']
+            ['templates' => 'Magento_Catalog::product/list/addto/compare.phtml']
         );
     }
 

@@ -22,7 +22,7 @@
         },
 
         /**
-         * Overridden "grunt-contrib-jasmine" SpecRunner template.
+         * Overridden "grunt-contrib-jasmine" SpecRunner templates.
          */
         "template": "<%= root %>/spec_runner/template.html",
 

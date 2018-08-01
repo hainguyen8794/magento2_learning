@@ -154,7 +154,7 @@ class EntityGenerator
         } catch (\Exception $e) {
             $this->getConnection()->rollBack();
             throw new LocalizedException(
-                __('Cannot generate entities - error occurred during template creation: %1', $e->getMessage()),
+                __('Cannot generate entities - error occurred during templates creation: %1', $e->getMessage()),
                 $e
             );
         }

@@ -13,12 +13,12 @@ use Magento\Mtf\Constraint\AbstractAssertForm;
 
 /**
  * Class AssertNewsletterForm
- * Assert that newsletter template form data equals to data passed from fixture
+ * Assert that newsletter templates form data equals to data passed from fixture
  */
 class AssertNewsletterForm extends AbstractAssertForm
 {
     /**
-     * Assert that newsletter template form data equals to data passed from fixture
+     * Assert that newsletter templates form data equals to data passed from fixture
      *
      * @param TemplateIndex $templateIndex
      * @param TemplateEdit $templateEdit
@@ -40,6 +40,6 @@ class AssertNewsletterForm extends AbstractAssertForm
      */
     public function toString()
     {
-        return "Newsletter template form data equals to data passed from fixture.";
+        return "Newsletter templates form data equals to data passed from fixture.";
     }
 }

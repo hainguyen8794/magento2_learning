@@ -6,7 +6,7 @@
 namespace Magento\Mtf\Util\Generate\File;
 
 /**
- * Interface for file template.
+ * Interface for file templates.
  */
 interface TemplateInterface
 {

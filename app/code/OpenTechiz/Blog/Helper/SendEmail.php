@@ -35,7 +35,7 @@ class SendEmail extends \Magento\Framework\App\Helper\AbstractHelper
 
         
         $transport = $this->_transportBuilder
-            ->setTemplateIdentifier($this->_scopeConfig->getValue('blog/general/template', $storeScope))
+            ->setTemplateIdentifier($this->_scopeConfig->getValue('blog/general/templates', $storeScope))
             ->setTemplateOptions(
                 [
                     'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
@@ -67,7 +67,7 @@ class SendEmail extends \Magento\Framework\App\Helper\AbstractHelper
         $postObject->setData($data);
 
         $transport = $this->_transportBuilder
-            ->setTemplateIdentifier($this->_scopeConfig->getValue('blog/reminder/template', $storeScope))
+            ->setTemplateIdentifier($this->_scopeConfig->getValue('blog/reminder/templates', $storeScope))
             ->setTemplateOptions(
                 [
                     'area' => \Magento\Framework\App\Area::AREA_FRONTEND,

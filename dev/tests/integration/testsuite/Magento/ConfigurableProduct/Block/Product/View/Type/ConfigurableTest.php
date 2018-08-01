@@ -80,7 +80,7 @@ class ConfigurableTest extends \PHPUnit\Framework\TestCase
         $this->assertArrayHasKey('productId', $config);
         $this->assertEquals(1, $config['productId']);
         $this->assertArrayHasKey('attributes', $config);
-        $this->assertArrayHasKey('template', $config);
+        $this->assertArrayHasKey('templates', $config);
         $this->assertArrayHasKey('prices', $config);
         $this->assertArrayHasKey('basePrice', $config['prices']);
     }

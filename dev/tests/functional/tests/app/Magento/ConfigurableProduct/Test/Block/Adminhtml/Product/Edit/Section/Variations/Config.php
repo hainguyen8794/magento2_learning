@@ -49,7 +49,7 @@ class Config extends Section
     protected $variationsMatrix = 'div[data-index="configurable-matrix"]';
 
     /**
-     * Selector for template block.
+     * Selector for templates block.
      *
      * @var string
      */
@@ -151,7 +151,7 @@ class Config extends Section
     }
 
     /**
-     * Get template block.
+     * Get templates block.
      *
      * @return Template
      */

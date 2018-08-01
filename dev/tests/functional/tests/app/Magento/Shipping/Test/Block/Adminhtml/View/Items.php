@@ -15,7 +15,7 @@ use Magento\Backend\Test\Block\Widget\Grid;
 class Items extends Grid
 {
     /**
-     * Secondary part of row locator template for getRow() method
+     * Secondary part of row locator templates for getRow() method
      *
      * @var string
      */

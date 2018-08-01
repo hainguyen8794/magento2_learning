@@ -152,7 +152,7 @@ class LayoutRule implements \Magento\TestFramework\Dependency\RuleInterface
      * Check dependencies for <block> element
      *
      * Ex.: <block class="{name}">
-     *      <block template="{path}">
+     *      <block templates="{path}">
      *
      * @param $currentModule
      * @param $contents
@@ -166,7 +166,7 @@ class LayoutRule implements \Magento\TestFramework\Dependency\RuleInterface
             ')[_\\\\]' .
             '(?<module>[A-Z][a-zA-Z]+)[_\\\\]' .
             '(?:[A-Z][a-zA-Z]+[_\\\\]?){1,}[\'"].*>)/' => \Magento\Test\Integrity\DependencyTest::TYPE_HARD,
-            '/(?<source><block.*template\s*=\s*[\'"](?<namespace>' .
+            '/(?<source><block.*templates\s*=\s*[\'"](?<namespace>' .
             $this->_namespaces .
             ')[_\\\\]' .
             '(?<module>[A-Z][a-zA-Z]+)::[\w\/\.]+[\'"].*>)/' => \Magento\Test\Integrity\DependencyTest::TYPE_SOFT,
@@ -178,7 +178,7 @@ class LayoutRule implements \Magento\TestFramework\Dependency\RuleInterface
      * Check dependencies for <action> element
      *
      * Ex.: <block>{name}
-     *      <template>{path}
+     *      <templates>{path}
      *      <file>{path}
      *      <element helper="{name}">
      *
@@ -194,11 +194,11 @@ class LayoutRule implements \Magento\TestFramework\Dependency\RuleInterface
             ')[_\\\\]' .
             '(?<module>[A-Z][a-zA-Z]+)[_\\\\]' .
             '(?:[A-Z][a-zA-Z]+[_\\\\]?){1,}<\/block\s*>)/' => \Magento\Test\Integrity\DependencyTest::TYPE_SOFT,
-            '/(?<source><template\s*>(?<namespace>' .
+            '/(?<source><templates\s*>(?<namespace>' .
             $this->_namespaces .
             ')[_\\\\]' .
             '(?<module>[A-Z][a-zA-Z]+)::[\w\/\.]+' .
-            '<\/template\s*>)/' => \Magento\Test\Integrity\DependencyTest::TYPE_SOFT,
+            '<\/templates\s*>)/' => \Magento\Test\Integrity\DependencyTest::TYPE_SOFT,
             '/(?<source><file\s*>(?<namespace>' .
             $this->_namespaces .
             ')[_\\\\]' .

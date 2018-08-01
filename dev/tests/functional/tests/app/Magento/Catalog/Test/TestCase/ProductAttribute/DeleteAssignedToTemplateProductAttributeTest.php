@@ -14,7 +14,7 @@ use Magento\Mtf\TestCase\Injectable;
 /**
  * Preconditions:
  * 1. Create Attribute set, based on Default.
- * 2. Create product attribute and add to created template.
+ * 2. Create product attribute and add to created templates.
  *
  * Test Flow:
  * 1. Log in to Backend.

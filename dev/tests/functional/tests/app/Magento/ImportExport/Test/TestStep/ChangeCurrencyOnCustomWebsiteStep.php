@@ -59,7 +59,7 @@ class ChangeCurrencyOnCustomWebsiteStep implements TestStepInterface
     {
         if ($this->changeCurrency === true) {
             $currency = $this->import->getDataFieldConfig('import_file')['source']
-                ->getValue()['template']['websiteCurrency'];
+                ->getValue()['templates']['websiteCurrency'];
             $entities = $this->import->getDataFieldConfig('import_file')['source']->getEntities();
             foreach ($entities as $entity) {
                 $websites = $entity->getDataFieldConfig('website_ids')['source']->getWebsites();

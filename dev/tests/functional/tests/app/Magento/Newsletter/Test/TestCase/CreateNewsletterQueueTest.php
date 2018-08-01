@@ -23,7 +23,7 @@ use Magento\Newsletter\Test\Page\Adminhtml\TemplateQueueIndex;
  * Steps:
  * 1. Open Backend
  * 2. Go to Marketing > Newsletter Template
- * 3. Find created template in grid
+ * 3. Find created templates in grid
  * 4. Execute "Queue Newsletter" action
  * 5. Fill data from fixtures
  * 6. Save Newsletter Queue
@@ -39,7 +39,7 @@ class CreateNewsletterQueueTest extends Injectable
     /* end tags */
 
     /**
-     * Page with newsletter template grid.
+     * Page with newsletter templates grid.
      *
      * @var TemplateIndex
      */

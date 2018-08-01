@@ -1,6 +1,6 @@
 define([
 	"jquery",
-    "mage/template",
+    "mage/templates",
     "mage/translate",
     "domReady!"
 ], function($, mageTemplate) {

@@ -56,7 +56,7 @@ class NewsletterTemplateTest extends \Magento\TestFramework\TestCase\AbstractBac
     public function testSaveActionCreateNewTemplateAndVerifySuccessMessage()
     {
         $this->getRequest()->setParam('id', $this->model->getId());
-        $this->dispatch('backend/newsletter/template/save');
+        $this->dispatch('backend/newsletter/templates/save');
         /**
          * Check that errors was generated and set to session
          */
@@ -65,7 +65,7 @@ class NewsletterTemplateTest extends \Magento\TestFramework\TestCase\AbstractBac
          * Check that success message is set
          */
         $this->assertSessionMessages(
-            $this->equalTo(['The newsletter template has been saved.']),
+            $this->equalTo(['The newsletter templates has been saved.']),
             \Magento\Framework\Message\MessageInterface::TYPE_SUCCESS
         );
     }
@@ -79,12 +79,12 @@ class NewsletterTemplateTest extends \Magento\TestFramework\TestCase\AbstractBac
         // Loading by code, since ID will vary. template_code is not actually used to load anywhere else.
         $this->model->load('some_unique_code', 'template_code');
 
-        // Ensure that template is actually loaded so as to prevent a false positive on saving a *new* template
+        // Ensure that templates is actually loaded so as to prevent a false positive on saving a *new* templates
         // instead of existing one.
         $this->assertEquals('some_unique_code', $this->model->getTemplateCode());
 
         $this->getRequest()->setParam('id', $this->model->getId());
-        $this->dispatch('backend/newsletter/template/save');
+        $this->dispatch('backend/newsletter/templates/save');
 
         /**
          * Check that errors was generated and set to session
@@ -95,7 +95,7 @@ class NewsletterTemplateTest extends \Magento\TestFramework\TestCase\AbstractBac
          * Check that success message is set
          */
         $this->assertSessionMessages(
-            $this->equalTo(['The newsletter template has been saved.']),
+            $this->equalTo(['The newsletter templates has been saved.']),
             \Magento\Framework\Message\MessageInterface::TYPE_SUCCESS
         );
     }
@@ -110,7 +110,7 @@ class NewsletterTemplateTest extends \Magento\TestFramework\TestCase\AbstractBac
         $this->model->load('some_unique_code', 'template_code');
 
         $this->getRequest()->setParam('id', $this->model->getId());
-        $this->dispatch('backend/newsletter/template/delete');
+        $this->dispatch('backend/newsletter/templates/delete');
 
         /**
          * Check that errors was generated and set to session
@@ -121,7 +121,7 @@ class NewsletterTemplateTest extends \Magento\TestFramework\TestCase\AbstractBac
          * Check that success message is set
          */
         $this->assertSessionMessages(
-            $this->equalTo(['The newsletter template has been deleted.']),
+            $this->equalTo(['The newsletter templates has been deleted.']),
             \Magento\Framework\Message\MessageInterface::TYPE_SUCCESS
         );
     }
@@ -136,7 +136,7 @@ class NewsletterTemplateTest extends \Magento\TestFramework\TestCase\AbstractBac
         $this->model->load('some_unique_code', 'template_code');
 
         $this->getRequest()->setMethod(\Zend\Http\Request::METHOD_GET)->setParam('id', $this->model->getId());
-        $this->dispatch('backend/newsletter/template/save');
+        $this->dispatch('backend/newsletter/templates/save');
 
         /**
          * Check that errors was generated and set to session

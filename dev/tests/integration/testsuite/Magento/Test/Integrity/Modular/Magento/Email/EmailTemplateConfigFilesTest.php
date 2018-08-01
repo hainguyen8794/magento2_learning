@@ -8,7 +8,7 @@ namespace Magento\Test\Integrity\Modular\Magento\Email;
 class EmailTemplateConfigFilesTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * Test that email template configuration file matches the format
+     * Test that email templates configuration file matches the format
      *
      * @param string $file
      * @dataProvider fileFormatDataProvider
@@ -34,7 +34,7 @@ class EmailTemplateConfigFilesTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Test that email template configuration contains references to existing template files
+     * Test that email templates configuration contains references to existing templates files
      *
      * @param string $templateId
      * @dataProvider templateReferenceDataProvider
@@ -56,7 +56,7 @@ class EmailTemplateConfigFilesTest extends \PHPUnit\Framework\TestCase
         }
 
         $templateFilename = $emailConfig->getTemplateFilename($templateId, $designParams);
-        $this->assertFileExists($templateFilename, 'Email template file, specified in the configuration, must exist');
+        $this->assertFileExists($templateFilename, 'Email templates file, specified in the configuration, must exist');
     }
 
     /**

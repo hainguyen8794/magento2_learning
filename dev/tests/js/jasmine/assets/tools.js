@@ -45,7 +45,7 @@ define([
         },
 
         /**
-         * Renderes template based on template map and a source data.
+         * Renderes templates based on templates map and a source data.
          *
          * @param {Object} source - Data for a lookup.
          * @param {Object} map - Template map.
